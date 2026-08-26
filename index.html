@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ============================================================
-     KM ULTIMATE — BEGINNER'S PLAYBOOK
-     Production-ready interactive single-page web app.
-     Theme: Deep Crimson (#7d3737) on Black (#0A0A0A / #121212).
-     Audience: absolute ultimate frisbee beginners.
+     KM ULTIMATE — MAIN SITE (HOME)
+     Official Brand Style Guide implementation:
+       Crimson #73000F · Charcoal #202828 · Silver #A7A7A7 · White
+       Typeface: Aftika (fallback: Work Sans, heavy weights)
+     Sub-page: /beginners-playbook/
      ============================================================ -->
 
-<!-- ---------- SEO ---------- -->
-<title>KM Ultimate — Beginner's Playbook | Learn Ultimate Frisbee from Zero</title>
-<meta name="description" content="KM Ultimate's beginner playbook: learn ultimate frisbee from zero — rules, backhand & forehand throws, catching, Spirit of the Game, and how to join your first pickup game in Laguna. No experience needed.">
-<meta name="keywords" content="ultimate frisbee, beginner guide, frisbee throws, backhand, forehand flick, pancake catch, spirit of the game, KM Ultimate, Laguna frisbee">
-<meta name="author" content="KM Ultimate · Laguna">
+<title>Kid Mafia Ultimate · Laguna | Community & Player Development</title>
+<meta name="description" content="Kid Mafia Ultimate is a Laguna-based ultimate frisbee community developing players on and off the field. Weekly Tuesday night training in Calamba — all levels welcome. Honing skills, building community, playing with heart.">
+<meta name="keywords" content="Kid Mafia Ultimate, KM Ultimate, ultimate frisbee Laguna, frisbee Calamba, Nuvali frisbee, Carmeltown field, ultimate Philippines">
+<meta name="author" content="Kid Mafia Ultimate">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0A0A0A">
+<meta name="theme-color" content="#202828">
+
 <link rel="canonical" href="./index.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="KM Ultimate — Beginner's Playbook">
-<meta property="og:description" content="Everything you need for your first throw, first catch, and first point. Built for total newcomers by Kid Mafia Ultimate, Laguna.">
-<meta property="og:site_name" content="KM Ultimate">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Kid Mafia Ultimate · Laguna">
+<meta property="og:description" content="More than a frisbee team — a community developing Ultimate players across Laguna. Training every Tuesday night, Carmeltown Football Field, Calamba.">
+<meta property="og:site_name" content="Kid Mafia Ultimate">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,885 +31,647 @@
 
 <style>
 /* ============================================================
-   1. DESIGN TOKENS — crimson / black / white palette (WCAG AAA)
+   1. OFFICIAL BRAND TOKENS
    ============================================================ */
 :root {
-  --crimson:        #7d3737;
-  --crimson-bright: #a34d4d;   /* hover state */
-  --crimson-deep:   #5c2828;
-  --black:          #0A0A0A;   /* page background */
-  --off-black:      #121212;   /* cards / raised surfaces */
-  --white:          #FFFFFF;   /* headings — ~19:1 on black */
-  --off-white:      #E5E5E5;   /* body text  — ~14:1 on black */
-  --gray:           #A0A0A0;   /* secondary  — ~6.9:1 on black (AA+) */
-
-  --line: rgba(229,229,229,0.12);
-  --font-display: 'Work Sans', sans-serif;
-  --font-body: 'Work Sans', sans-serif;
+  --km-crimson: #73000F;
+  --km-crimson-hi: #9c1220;          /* hover/brighten state */
+  --km-charcoal: #202828;
+  --km-charcoal-deep: #171d1d;       /* page background */
+  --km-silver: #A7A7A7;
+  --km-white: #FFFFFF;
+  --km-line: rgba(167,167,167,0.2);
+  --font-main: 'Work Sans', sans-serif;   /* Aftika fallback — heavy weights */
   --font-mono: 'JetBrains Mono', monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 html, body {
-  background: var(--black);
-  color: var(--off-white);
-  font-family: var(--font-body);
+  background: var(--km-charcoal-deep);
+  color: var(--km-white);
+  font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Ambient background glows — crimson disc motifs */
 body {
   min-height: 100vh;
   background-image:
-    radial-gradient(circle at 15% 5%,  rgba(115,0,15,0.16), transparent 42%),
-    radial-gradient(circle at 88% 95%, rgba(156,18,32,0.10), transparent 48%);
+    radial-gradient(circle at 10% 0%, rgba(115,0,15,0.22), transparent 38%),
+    radial-gradient(circle at 92% 100%, rgba(115,0,15,0.12), transparent 44%);
 }
 
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--crimson-bright); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--km-crimson); outline-offset: 3px; }
 
 /* ============================================================
-   2. HEADER + HERO — stylized SVG frisbee & flight arcs
+   2. COMPACT TOP NAV — no animation, slim & aesthetic
    ============================================================ */
-header {
-  padding: 26px 20px 18px;
-  border-bottom: 1px solid var(--line);
-  text-align: center;
-  position: sticky;
-  top: 0;
-  background: rgba(10,10,10,0.92);
+.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px;
+  padding: 8px 20px;
+  background: rgba(23,29,29,0.94);
   backdrop-filter: blur(8px);
-  z-index: 20;
+  border-bottom: 1px solid var(--km-line);
+}
+.site-nav .logo {
+  font-family: var(--font-main);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 17px;
+  color: var(--km-white);
+  text-decoration: none;
+  line-height: 1;
+}
+.site-nav .logo .red { color: var(--km-crimson-hi); }
+.site-nav .logo .tag {
+  font-size: 9px;
+  vertical-align: super;
+  color: var(--km-silver);
+  font-weight: 700;
 }
 
-.hero-visual {
-  display: block;
-  width: min(340px, 78vw);
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--km-silver);
+  padding: 13px 12px;
+  border-radius: 4px;
+  transition: color .2s ease, background .2s ease;
+}
+.nav-links a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
+@media (max-width: 640px) { .nav-links a { padding: 11px 7px; font-size: 10px; } }
+
+/* ============================================================
+   3. HERO — brandmark (fedora silhouette) + flight trajectory,
+      static (no animation), compact height
+   ============================================================ */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 52px 20px 56px;
+  overflow: hidden;
+}
+
+/* ambient trajectory lines behind hero content — decorative only */
+.hero .bg-arcs {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
+
+/* Fedora brandmark, drawn inline per brand guide (white on charcoal,
+   crimson disc accent) */
+.brandmark {
+  width: clamp(64px, 12vw, 88px);
   height: auto;
-  margin: 4px auto 2px;
+  display: block;
+  margin: 0 auto 14px;
 }
-
-
-
-}
- to { opacity: 0.85; }
-}
-
 
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--crimson-bright);
-  margin-top: 6px;
-}
-
-h1.brand {
-  font-family: var(--font-display); font-weight:800;
-  font-weight: 700;
-  font-size: clamp(26px, 6vw, 40px);
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  color: var(--white);            /* AAA contrast on #0A0A0A */
-}
-h1.brand span { color: var(--crimson-bright); }
-
-.tagline {
-  margin: 6px auto 0;
-  font-size: 13.5px;
-  color: var(--gray);
-  max-width: 480px;
-  line-height: 1.6;
-}
-
-/* ============================================================
-   3. FLIGHTPATH NAV — tap any chapter
-   ============================================================ */
-.flightpath-wrap {
-  max-width: 900px;
-  margin: 20px auto 0;
-  padding: 0 16px 18px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.flightpath-wrap::-webkit-scrollbar { display: none; }
-
-.flightpath {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 0;
-  min-width: 760px;
-  padding-top: 36px;
-}
-
-.flightpath::before {
-  content: '';
-  position: absolute;
-  top: 13px; left: 40px; right: 40px;
-  height: 2px;
-  background-image: linear-gradient(to right, var(--line) 60%, transparent 0%);
-  background-size: 14px 2px;
-  background-repeat: repeat-x;
-}
-
-.stop {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: inherit;
-  font-family: var(--font-body);
-  padding: 0 4px;
-  min-height: 48px;               /* mobile tap target */
-}
-
-.stop .dot {
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  background: var(--off-black);
-  border: 2px solid var(--line);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--gray);
-  transition: all 0.25s ease;
-  z-index: 2;
-}
-.stop .label {
-  margin-top: 10px;
-  font-size: 11px;
-  text-align: center;
-  color: var(--gray);
-  line-height: 1.3;
-  max-width: 90px;
-  transition: color 0.25s ease;
-}
-
-.stop.active .dot {
-  background: var(--crimson);
-  border-color: var(--crimson-bright);
-  color: var(--white);
-  transform: scale(1.15);
-  box-shadow: 0 0 0 6px rgba(115,0,15,0.25);
-}
-.stop.active .label { color: var(--white); font-weight: 600; }
-.stop:hover .dot    { border-color: var(--silver, #A7A7A7); border-color: #A7A7A7; }
-
-/* ============================================================
-   4. PANELS & CONTENT CARDS
-   ============================================================ */
-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 28px 20px 80px;
-}
-
-.panel { animation: fadeIn 0.35s ease; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@media (prefers-reduced-motion: reduce) { .panel { animation: none; } }
-
-.panel-head { margin-bottom: 6px; }
-
-.panel-num {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--crimson-bright);
-}
-
-h2.panel-title {
-  font-family: var(--font-display); font-weight:800;
-  font-weight: 600;
-  font-size: clamp(24px, 5vw, 32px);
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-.panel-sub {
-  color: var(--gray);
-  font-size: 14.5px;
-  margin-bottom: 26px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--line);
-  line-height: 1.65;
-}
-
-.card {
-  background: var(--off-black);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 18px 20px;
-  margin-bottom: 14px;
-}
-.card h3 {
-  font-family: var(--font-display); font-weight:800;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--crimson-bright);
-  margin-bottom: 8px;
-}
-.card p, .card li { font-size: 14.5px; line-height: 1.65; color: var(--off-white); }
-.card ul { padding-left: 18px; margin-top: 6px; }
-.card li { margin-bottom: 5px; }
-.card strong { color: var(--white); }
-
-/* Numbered rule cards */
-.rule-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-
-.rule-card {
-  display: flex; gap: 14px;
-  background: var(--off-black);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--crimson);
-  padding: 14px 16px;
-  border-radius: 4px;
-}
-.rule-card .rn {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--crimson-bright);
-  padding-top: 2px;
-  flex-shrink: 0; width: 20px;
-}
-.rule-card h4 {
-  font-family: var(--font-display); font-weight:800;
-  font-size: 14.5px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-  color: var(--white);
-}
-.rule-card p { font-size: 13.5px; color: var(--gray); line-height: 1.55; }
-
-/* Step lists */
-.steps { counter-reset: step; list-style: none; padding: 0; }
-.steps li {
-  counter-increment: step;
-  position: relative;
-  padding-left: 34px;
-  margin-bottom: 12px;
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--off-white);
-}
-.steps li::before {
-  content: counter(step);
-  position: absolute; left: 0; top: 0;
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--crimson);
-  color: var(--white);
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 11px;
-  display: flex; align-items: center; justify-content: center;
-}
-
-/* Diagrams (recolored crimson/white theme) */
-.diagram-box {
-  display: flex; justify-content: center;
-  background: rgba(115,0,15,0.06);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 14px 10px 6px;
-  margin-bottom: 14px;
-}
-.diagram-box svg { width: 100%; max-width: 260px; height: auto; display: block; }
-.diagram-label { font-family: var(--font-mono); font-size: 10px; fill: var(--gray); }
-.diagram-label.accent { fill: var(--crimson-bright); }
-
-/* Tags */
-.tag {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--crimson-bright);
-  border: 1px solid rgba(156,18,32,0.5);
-  padding: 2px 8px;
-  border-radius: 20px;
+  color: var(--km-silver);
   margin-bottom: 10px;
 }
 
-/* Spirit box */
-.spirit-box {
-  background: linear-gradient(135deg, rgba(115,0,15,0.18), rgba(10,10,10,0.4));
-  border: 1px solid rgba(156,18,32,0.45);
-  padding: 22px 20px;
-  border-radius: 6px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.spirit-box .sotg-word {
-  font-family: var(--font-display); font-weight:800;
-  font-size: 20px;
+h1.brand {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: clamp(36px, 8vw, 60px);
+  line-height: 1.02;
   text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--km-white);
+}
+h1.brand .red { color: var(--km-crimson); text-shadow: 2px 2px 0 rgba(255,255,255,0.12); }
+h1.brand .tag {
+  font-size: 0.32em;
+  vertical-align: super;
+  color: var(--km-silver);
+  font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--crimson-bright);
-  margin-bottom: 8px;
 }
-.spirit-box p { font-size: 14px; color: var(--off-white); max-width: 460px; margin: 0 auto; line-height: 1.6; }
-
-/* ============================================================
-   5. NAV BUTTONS & CTAs — ≥48px tap targets, hover/active states
-   ============================================================ */
-.nav-buttons {
-  display: flex; justify-content: space-between;
-  margin-top: 34px; gap: 10px;
-}
-
-.nav-btn {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.04em;
+.brand-sub {
+  font-weight: 700;
   text-transform: uppercase;
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--off-white);
-  min-height: 48px;
-  padding: 12px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.1s ease;
+  letter-spacing: 0.42em;
+  font-size: clamp(12px, 2.2vw, 16px);
+  color: var(--km-white);
+  margin-top: 6px;
+  text-shadow: 1px 1px 0 var(--km-crimson);
 }
-.nav-btn:hover:not(:disabled) {
-  border-color: var(--crimson-bright);
-  background: rgba(115,0,15,0.15);
-  color: var(--white);
+
+.hero-tagline {
+  margin-top: 16px;
+  font-size: clamp(15px, 2.5vw, 17px);
+  color: var(--km-white);
+  max-width: 580px;
+  margin-left: auto; margin-right: auto;
+  line-height: 1.6;
 }
-.nav-btn:active:not(:disabled) { transform: scale(0.97); }
-.nav-btn:disabled { opacity: 0.25; cursor: default; }
+
+.motto {
+  margin-top: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: clamp(12px, 2vw, 15px);
+  color: var(--km-crimson-hi);
+}
+
+.hero-actions { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 .cta {
   display: inline-flex;
   align-items: center; justify-content: center;
-  min-height: 52px;                 /* generous tap target */
-  background: var(--crimson);
-  color: var(--white);
-  font-family: var(--font-mono);
+  min-height: 50px;
+  background: var(--km-crimson);
+  color: var(--km-white);
+  font-family: var(--font-main);
+  font-weight: 800;
   font-size: 13px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-weight: 600;
-  padding: 14px 30px;
+  padding: 14px 26px;
   border-radius: 4px;
-  border: 1px solid var(--crimson-bright);
+  border: 1px solid rgba(255,255,255,0.15);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
 }
-.cta:hover  { background: var(--crimson-bright); transform: scale(1.02); box-shadow: 0 4px 18px rgba(115,0,15,0.45); }
-.cta:active { transform: scale(0.97); }
+.cta:hover  { background: var(--km-crimson-hi); transform: scale(1.02); box-shadow: 0 6px 22px rgba(115,0,15,0.55); }
+.cta:active { transform: scale(0.98); }
+.cta.ghost {
+  background: transparent;
+  border-color: var(--km-line);
+  color: var(--km-white);
+}
+.cta.ghost:hover { border-color: var(--km-crimson-hi); background: rgba(115,0,15,0.25); box-shadow: none; }
+
+/* Social icons row */
+.socials {
+  margin-top: 26px;
+  display: flex; gap: 12px; justify-content: center;
+}
+.socials a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--km-line);
+  background: var(--km-charcoal);
+  transition: border-color .2s ease, background .2s ease, transform .15s ease;
+}
+.socials a:hover { border-color: var(--km-crimson-hi); background: rgba(115,0,15,0.35); transform: scale(1.06); }
+.socials svg { width: 20px; height: 20px; fill: var(--km-silver); }
+.socials a:hover svg { fill: var(--km-white); }
 
 /* ============================================================
-   6. SIGN-UP MODAL (CTA behavior)
+   4. SECTIONS
    ============================================================ */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(4px);
-  display: none;
-  align-items: center; justify-content: center;
-  z-index: 100;
-  padding: 20px;
+section.block {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 52px 20px 20px;
+  scroll-margin-top: 70px;
 }
-.modal-overlay.open { display: flex; }
 
-.modal {
-  background: var(--off-black);
-  border: 1px solid var(--crimson);
-  border-radius: 8px;
-  max-width: 420px; width: 100%;
-  padding: 28px 24px;
-  text-align: center;
-  animation: fadeIn 0.25s ease;
+.section-head { margin-bottom: 20px; }
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--km-crimson-hi);
 }
-.modal h3 {
-  font-family: var(--font-display); font-weight:800;
+h2.section-title {
+  font-weight: 800;
   text-transform: uppercase;
-  font-size: 20px;
-  color: var(--white);
+  font-size: clamp(26px, 5vw, 36px);
+  color: var(--km-white);
+  line-height: 1.1;
+}
+.section-sub {
+  color: var(--km-silver);
+  font-size: 14.5px;
+  margin-top: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--km-line);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+.card {
+  background: var(--km-charcoal);
+  border: 1px solid var(--km-line);
+  border-radius: 6px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+}
+.card h3 {
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--km-crimson-hi);
   margin-bottom: 8px;
 }
-.modal p { color: var(--gray); font-size: 14px; line-height: 1.6; margin-bottom: 18px; }
-.modal .modal-close {
-  margin-top: 6px;
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--off-white);
-  font-family: var(--font-mono);
-  font-size: 11px;
+.card p, .card li { font-size: 14.5px; line-height: 1.7; color: #e8e8e8; }
+.card ul { padding-left: 18px; margin-top: 6px; }
+.card li { margin-bottom: 6px; }
+.card strong { color: var(--km-white); }
+.callout {
+  margin-top: 14px;
+  font-weight: 800;
   text-transform: uppercase;
-  min-height: 48px;
-  padding: 12px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.08em;
+  color: var(--km-crimson-hi);
+  font-size: 15px;
 }
-.modal .modal-close:hover { border-color: var(--crimson-bright); color: var(--white); }
 
-footer {
+.duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) { .duo-grid { grid-template-columns: 1fr; } }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.value-card {
+  background: var(--km-charcoal);
+  border: 1px solid var(--km-line);
+  border-left: 3px solid var(--km-crimson);
+  border-radius: 4px;
+  padding: 16px 18px;
+}
+.value-card h4 {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: var(--km-white);
+  margin-bottom: 5px;
+}
+.value-card p { font-size: 13.5px; color: var(--km-silver); line-height: 1.6; }
+
+/* ---------- TRAINING SCHEDULE ---------- */
+.schedule-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(115,0,15,0.35), var(--km-charcoal));
+  border: 1px solid rgba(156,18,32,0.6);
+  border-radius: 8px;
+  padding: 24px;
+}
+@media (max-width: 560px) { .schedule-card { grid-template-columns: 1fr; text-align: center; } }
+
+.schedule-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--km-crimson);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+.schedule-icon svg { width: 36px; height: 36px; stroke: var(--km-white); fill: none; stroke-width: 2; }
+
+.sched-line-1 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--km-crimson-hi); }
+.sched-line-2 { font-weight: 800; font-size: clamp(22px, 4vw, 30px); text-transform: uppercase; color: var(--km-white); }
+.sched-line-3 { font-size: 15px; color: #e8e8e8; margin-top: 2px; }
+.sched-line-4 { font-family: var(--font-mono); font-size: 12.5px; color: var(--km-silver); margin-top: 4px; }
+
+.landmarks ul { list-style: none; padding: 0; }
+.landmarks li {
+  padding: 10px 0 10px 26px;
+  border-bottom: 1px dashed var(--km-line);
+  position: relative;
+  font-size: 14px;
+  color: #e8e8e8;
+}
+.landmarks li:last-child { border-bottom: none; }
+.landmarks li::before { content: '📍'; position: absolute; left: 0; filter: grayscale(0.3); }
+
+.note-strip {
+  margin-top: 14px;
+  border: 1px dashed rgba(156,18,32,0.6);
+  background: rgba(115,0,15,0.12);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--km-silver);
+  line-height: 1.6;
+}
+
+/* ---------- PEOPLE ---------- */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+.person {
+  background: var(--km-charcoal);
+  border: 1px solid var(--km-line);
+  border-radius: 6px;
+  padding: 18px 12px;
   text-align: center;
-  padding: 24px 20px 40px;
+  transition: border-color .2s ease, transform .15s ease;
+}
+.person:hover { border-color: var(--km-crimson-hi); transform: translateY(-3px); }
+.avatar {
+  width: 84px; height: 84px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background:
+    repeating-linear-gradient(45deg, rgba(115,0,15,0.3), rgba(115,0,15,0.3) 8px, rgba(23,29,29,0.6) 8px, rgba(23,29,29,0.6) 16px),
+    var(--km-charcoal-deep);
+  border: 2px solid var(--km-crimson);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.avatar svg { width: 46px; height: 46px; fill: var(--km-silver); opacity: 0.85; }
+.person .p-name {
+  font-weight: 800;
+  font-size: 13.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--km-white);
+  line-height: 1.25;
+}
+.person .p-role {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--km-silver);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.committee-sub {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--gray);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--km-crimson-hi);
+  margin: 26px 0 14px;
 }
 
-/* Mobile flightpath: hide inactive labels for compactness */
-@media (max-width: 480px) {
-  .stop .label { display: none; }
-  .stop.active .label {
-    display: block;
-    position: absolute;
-    top: 32px;
-    white-space: nowrap;
-    max-width: none;
-    color: var(--white);
-  }
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 56px;
+  border-top: 1px solid var(--km-line);
+  text-align: center;
+  padding: 30px 20px 40px;
 }
+footer .f-logo {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: var(--km-white);
+}
+footer .f-logo .red { color: var(--km-crimson-hi); }
+footer p {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--km-silver);
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+  line-height: 1.8;
+}
+footer nav { margin-top: 14px; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+footer nav a {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--km-silver);
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 4px;
+  transition: color .2s ease, background .2s ease;
+}
+footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
 </style>
 </head>
 <body>
 
-<header>
-  <!-- HERO: stylized SVG frisbee + ambient flight arcs -->
-  <svg class="hero-visual" viewBox="0 0 340 96" role="img"
-     aria-label="Kid Mafia Ultimate brandmark — fedora silhouette with flying disc trajectory" style="width:min(300px,70vw);">
-    <path d="M 10 78 Q 170 6 330 58" stroke="#73000F" stroke-width="1.5" fill="none" opacity="0.55"/>
-    <path d="M 20 86 Q 170 22 320 68" stroke="#A7A7A7" stroke-width="1" fill="none" opacity="0.25" stroke-dasharray="6 8"/>
-    <ellipse cx="316" cy="56" rx="14" ry="5" fill="#202828" stroke="#A7A7A7" stroke-width="1.5"/>
-    <ellipse cx="316" cy="54" rx="8" ry="3" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
-    <!-- fedora brandmark -->
-    <g transform="translate(128,10)">
-      <path d="M 30 30 Q 32 6 50 4 Q 68 6 70 30 L 70 36 L 30 36 Z" fill="#FFFFFF"/>
-      <rect x="30" y="30" width="40" height="7" fill="#73000F"/>
-      <path d="M 18 43 Q 24 37 50 37 Q 76 37 82 43 Q 78 49 50 49 Q 22 49 18 43 Z" fill="#FFFFFF"/>
-      <path d="M 30 58 Q 50 50 70 58 L 74 76 L 26 76 Z" fill="#FFFFFF"/>
-      <ellipse cx="90" cy="68" rx="8" ry="3" fill="#73000F"/>
-    </g>
+<!-- ================= NAV ================= -->
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="logo" href="#top">KM<span class="red">·</span>ULTIMATE<sup class="tag">'15</sup></a>
+  <div class="nav-links">
+    <a href="#welcome">Welcome</a>
+    <a href="#about">About</a>
+    <a href="#training">Training</a>
+    <a href="#people">People</a>
+    <a href="./beginners-playbook/index.html">Beginner's Playbook</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <!-- Ambient flight trajectory lines (static, decorative) -->
+  <svg class="bg-arcs" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M -50 360 Q 600 -140 1260 260" stroke="#73000F" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M -50 400 Q 620 -80 1260 300" stroke="#A7A7A7" stroke-width="1" fill="none" opacity="0.18" stroke-dasharray="8 10"/>
+    <path d="M -50 320 Q 580 -190 1260 210" stroke="#73000F" stroke-width="1" fill="none" opacity="0.35"/>
+    <!-- small static disc resting at the end of an arc -->
+    <ellipse cx="960" cy="120" rx="44" ry="13" fill="#202828" stroke="#A7A7A7" stroke-width="1.5"/>
+    <ellipse cx="960" cy="116" rx="27" ry="7" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.35"/>
+    <path d="M 900 128 Q 884 132 870 129" stroke="#73000F" stroke-width="2" fill="none" stroke-linecap="round"/>
   </svg>
 
-  <div class="eyebrow">Kid Mafia Ultimate · Laguna</div>
-  <h1 class="brand">KM<span>·</span>ULTIMATE</h1>
-  <p class="tagline">Beginner's Playbook — everything you need for your first throw, your first catch, and your first point.</p>
+  <div class="hero-inner">
+    <!-- Inline SVG Brandmark: fedora silhouette per brand guide -->
+    <svg class="brandmark" viewBox="0 0 100 84" role="img" aria-label="Kid Mafia Ultimate brandmark — figure wearing a fedora">
+      <!-- fedora crown -->
+      <path d="M 30 34 Q 32 10 50 8 Q 68 10 70 34 L 70 40 L 30 40 Z" fill="#FFFFFF"/>
+      <!-- fedora band -->
+      <rect x="30" y="34" width="40" height="7" fill="#73000F"/>
+      <!-- brim -->
+      <path d="M 18 47 Q 24 41 50 41 Q 76 41 82 47 Q 78 53 50 53 Q 22 53 18 47 Z" fill="#FFFFFF"/>
+      <!-- shoulders / collar hint -->
+      <path d="M 30 62 Q 50 54 70 62 L 74 80 L 26 80 Z" fill="#FFFFFF"/>
+      <!-- crimson flying disc accent beside the mark -->
+      <ellipse cx="90" cy="72" rx="8" ry="3" fill="#73000F"/>
+    </svg>
+
+    <div class="eyebrow">Laguna · Philippines</div>
+    <h1 class="brand"><span class="tag">'15</span><br>KM<span class="red">&nbsp;</span>ULTIMATE</h1>
+    <div class="brand-sub">Kid Mafia</div>
+    <p class="hero-tagline">More than a frisbee team — a community dedicated to developing Ultimate Frisbee players across Laguna.</p>
+    <div class="motto">Honing Skills · Building Community · Playing with Heart</div>
+    <div class="hero-actions">
+      <a class="cta" href="#training">Train With Us</a>
+      <a class="cta ghost" href="./beginners-playbook/index.html">New to Frisbee? Start Here →</a>
+    </div>
+
+    <!-- Official social platforms -->
+    <div class="socials" aria-label="Social media links">
+      <a href="https://www.facebook.com/KM.Ultimate" target="_blank" rel="noopener" aria-label="Facebook — KM.Ultimate" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.87.24-1.46 1.49-1.46h1.6V4.45c-.28-.04-1.23-.12-2.34-.12-2.31 0-3.9 1.41-3.9 4v2.17H7.75v3h2.6V21h3.15z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/km_ultimate" target="_blank" rel="noopener" aria-label="Instagram — @km_ultimate" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 4.3c2.5 0 2.8 0 3.8.06 2.53.11 3.71 1.31 3.83 3.83.05 1 .06 1.28.06 3.81s0 2.81-.06 3.81c-.12 2.52-1.3 3.72-3.83 3.83-1 .05-1.28.06-3.8.06s-2.81 0-3.81-.06c-2.53-.11-3.71-1.32-3.83-3.83-.05-1-.06-1.28-.06-3.81s0-2.81.06-3.81C4.48 5.67 5.66 4.47 8.19 4.36c1-.05 1.3-.06 3.81-.06zM12 2.5c-2.57 0-2.89.01-3.9.06-3.4.16-5.3 2.05-5.46 5.46-.05 1.01-.06 1.33-.06 3.98s.01 2.97.06 3.98c.16 3.4 2.05 5.3 5.46 5.46 1.01.05 1.33.06 3.9.06s2.89-.01 3.9-.06c3.4-.16 5.3-2.06 5.45-5.46.05-1.01.07-1.33.07-3.98s-.02-2.97-.07-3.98c-.15-3.4-2.05-5.3-5.45-5.46-1.01-.05-1.33-.06-3.9-.06zm0 4.63a4.87 4.87 0 1 0 0 9.74 4.87 4.87 0 0 0 0-9.74zm0 8.03a3.16 3.16 0 1 1 0-6.32 3.16 3.16 0 0 1 0 6.32zm5.07-9.37a1.14 1.14 0 1 0 0 2.27 1.14 1.14 0 0 0 0-2.27z"/></svg>
+      </a>
+    </div>
+  </div>
 </header>
 
-<div class="flightpath-wrap">
-  <nav class="flightpath" id="flightpath" aria-label="Flightpath chapter navigation"></nav>
-</div>
+<main>
+  <!-- ================= 1. WELCOME ================= -->
+  <section class="block" id="welcome" aria-labelledby="welcome-title">
+    <div class="section-head">
+      <span class="section-num">01 / Welcome to the Family</span>
+      <h2 class="section-title" id="welcome-title">Welcome to Kid Mafia</h2>
+      <p class="section-sub">Whether you're holding a disc for the first time or chasing an elite level of play — you belong here.</p>
+    </div>
+    <div class="card">
+      <p>Kid Mafia is more than a frisbee team — we are a community dedicated to developing Ultimate Frisbee players across Laguna. Whether you are just picking up a disc for the first time or looking to sharpen elite skills, this organization exists to support your growth <strong>on and off the field</strong>.</p>
+    </div>
+    <div class="card">
+      <h3>Everything you need is here</h3>
+      <p>This site is home base: our mission and values, our training schedule and venue, and the people who lead the family — plus a full beginner's playbook for anyone picking up a disc for the first time. Explore each section and reach out through our socials anytime.</p>
+      <div class="callout">Play hard. Play fair. Lift others up.</div>
+    </div>
+  </section>
 
-<main id="main"></main>
+  <!-- ================= 2. ABOUT ================= -->
+  <section class="block" id="about" aria-labelledby="about-title">
+    <div class="section-head">
+      <span class="section-num">02 / Who We Are</span>
+      <h2 class="section-title" id="about-title">About Kid Mafia</h2>
+      <p class="section-sub">Built in Laguna, open to everyone. Here's what drives us.</p>
+    </div>
 
-<footer>KM ULTIMATE — DEVELOPING PLAYERS ACROSS LAGUNA, ON AND OFF THE FIELD</footer>
-
-<!-- CTA sign-up modal (placeholder trigger) -->
-<div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
-  <div class="modal">
-    <h3 id="signupTitle">Join the Mafia 🥏</h3>
-    <p>You're in! This is a sign-up placeholder — wire it to your Google Form,
-       Facebook group, or mailing list whenever you're ready. For now:
-       see you at the next beginner session in Laguna.</p>
-    <button class="cta" id="modalCta">Let's Go</button><br><br>
-    <button class="modal-close" id="modalClose">Close</button>
-  </div>
-</div>
-
-<script>
-/* ============================================================
-   CHAPTER DATA — beginner-first content, crimson-theme diagrams
-   Diagram colors: disc rim #a34d4d, accents #7d3737, labels gray.
-   ============================================================ */
-const chapters = [
-  {
-    label: "Welcome",
-    title: "Welcome to KM Ultimate",
-    sub: "Kid Mafia Ultimate is a community built to grow ultimate frisbee players across Laguna — whether you've never touched a disc or you're ready to sharpen your game. This playbook is your starting point.",
-    body: `
+    <div class="duo-grid">
       <div class="card">
-        <h3>Why this playbook exists</h3>
-        <p>Every elite player started exactly where you are now. This guide walks you through the fundamentals in order: what the game is, the basic rules, how to throw and catch, and how to carry yourself on the field. Go chapter by chapter — each one builds on the last.</p>
+        <h3>Our Mission</h3>
+        <p>To provide accessible, high-quality training, mentorship, and competitive opportunities for Ultimate Frisbee players living in Laguna — helping them develop technical skill, tactical knowledge, physical fitness, and strong character.</p>
       </div>
       <div class="card">
-        <h3>What you'll be able to do by the end</h3>
-        <ul>
-          <li>Explain the basic rules of ultimate to a friend</li>
-          <li>Throw a backhand and a forehand with control</li>
-          <li>Catch confidently with two hands</li>
-          <li>Step onto a field for your first pickup game with KM Ultimate</li>
-        </ul>
-      </div>`
-  },
-  {
-    label: "What is Ultimate",
-    title: "What Is Ultimate?",
-    sub: "The game, in plain terms, before any rules or techniques.",
-    body: `
-      <div class="card">
-        <h3>The basic idea</h3>
-        <p>Ultimate is a team sport played with a flying disc. Two teams try to score points by catching the disc in the opposing team's end zone. You can't run while holding the disc — you move it by throwing it to teammates down the field.</p>
+        <h3>Our Vision</h3>
+        <p>A thriving Ultimate community in Laguna where every player — regardless of experience level — has the support, coaching, and pathway needed to reach their full potential.</p>
       </div>
-      <div class="card">
-        <h3>The team</h3>
-        <ul>
-          <li>7 players per side on the field at once (smaller formats like 5v5 are common for beginners and pickup)</li>
-          <li>Mixed, men's, and women's divisions all exist — KM Ultimate welcomes all</li>
-          <li>Squads rotate freely with unlimited substitutions between points</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>What makes it different</h3>
-        <p>There are no referees in most games. Players call their own fouls and lines, guided by a principle called the <strong>Spirit of the Game</strong>. Respect and honesty are part of the sport itself, not an add-on.</p>
-      </div>`
-  },
-  {
-    label: "Gear & Field",
-    title: "The Gear & The Field",
-    sub: "What you need to bring, and what the playing area looks like.",
-    body: `
-      <div class="card">
-        <h3>What you actually need to start</h3>
-        <ul>
-          <li>A 175g regulation ultimate disc (the sport uses a specific disc, not just any frisbee)</li>
-          <li>Cleats or flat athletic shoes with good grip</li>
-          <li>Comfortable athletic wear — layers for early morning or evening sessions</li>
-          <li>Water. Laguna heat is no joke — bring more than you think you need</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>The field, roughly</h3>
-        <p>A regulation field is about 100m long and 37m wide, split into three parts: an end zone on each end (about 18m deep) and the main playing field in between. As a beginner you only need to know:</p>
-        <ul>
-          <li>The <strong>end zones</strong> are where you score</li>
-          <li>The <strong>sidelines and end lines</strong> mark out-of-bounds</li>
-          <li>Games often start with a shortened or adapted field for beginner sessions</li>
-        </ul>
-      </div>`
-  },
-  {
-    label: "Basic Rules",
-    title: "The Basic Rules",
-    sub: "Seven things to know before you play your first point. Read these more than once — they're the foundation of everything else.",
-    body: `
-      <div class="rule-grid">
-        <div class="rule-card"><div class="rn">01</div><div><h4>No running with the disc</h4><p>Once you catch it, plant your pivot foot and throw from there — like basketball, but you can hold it as long as the stall count allows.</p></div></div>
-        <div class="rule-card"><div class="rn">02</div><div><h4>The stall count</h4><p>The defender guarding the thrower counts out loud from 1 to 10. If the disc isn't thrown before "stall ten," it's a turnover.</p></div></div>
-        <div class="rule-card"><div class="rn">03</div><div><h4>Turnovers happen instantly</h4><p>If a pass is dropped, intercepted, thrown out of bounds, or stalled out, the other team immediately takes possession right where the disc landed. Play doesn't stop.</p></div></div>
-        <div class="rule-card"><div class="rn">04</div><div><h4>Scoring</h4><p>You score by catching the disc while standing in the end zone you're attacking. That's it — one point.</p></div></div>
-        <div class="rule-card"><div class="rn">05</div><div><h4>No contact</h4><p>Ultimate is a non-contact sport. Fouls are called by the player who was fouled, and the disc typically goes back to before the foul.</p></div></div>
-        <div class="rule-card"><div class="rn">06</div><div><h4>Out of bounds</h4><p>If the disc lands or is caught outside the lines, it's a turnover, and the other team gets it at the nearest point on the line.</p></div></div>
-        <div class="rule-card"><div class="rn">07</div><div><h4>You call your own game</h4><p>There are no referees. Players make their own calls honestly. If two players disagree, the disc usually goes back to the thrower — the goal is always fair play, not winning the argument.</p></div></div>
-      </div>`
-  },
-  {
-    label: "Throwing",
-    title: "Throwing Basics",
-    sub: "Two throws will cover almost everything you need as a beginner: the backhand and the forehand (also called a flick).",
-    body: `
-      <div class="card">
-        <span class="tag">Throw 1</span>
-        <h3>The Backhand</h3>
-        <p>The most natural throw for most beginners — start here.</p>
-        <div class="diagram-box">
-          <svg viewBox="0 0 240 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Backhand grip diagram: thumb on top, fingers curled under rim">
-            <ellipse cx="120" cy="80" rx="72" ry="26" fill="rgba(115,0,15,0.15)" stroke="#a34d4d" stroke-width="3"/>
-            <ellipse cx="120" cy="80" rx="50" ry="15" fill="none" stroke="rgba(229,229,229,0.35)" stroke-width="1.5"/>
-            <ellipse cx="120" cy="63" rx="15" ry="9" fill="#FFFFFF"/>
-            <path d="M 75 95 Q 90 108 105 96" stroke="#E5E5E5" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <path d="M 105 96 Q 120 110 135 96" stroke="#E5E5E5" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <path d="M 135 96 Q 150 108 165 95" stroke="#E5E5E5" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <line x1="120" y1="36" x2="120" y2="52" stroke="rgba(229,229,229,0.4)" stroke-width="1"/>
-            <text x="120" y="26" text-anchor="middle" class="diagram-label accent">THUMB ON TOP</text>
-            <line x1="120" y1="118" x2="120" y2="132" stroke="rgba(229,229,229,0.4)" stroke-width="1"/>
-            <text x="120" y="148" text-anchor="middle" class="diagram-label">FINGERS CURLED UNDER RIM</text>
-          </svg>
-        </div>
-        <ol class="steps">
-          <li>Grip the disc with your thumb on top and fingers curled underneath the rim.</li>
-          <li>Stand sideways to your target, non-throwing shoulder pointing at them.</li>
-          <li>Pull the disc across your body, keeping it flat and low.</li>
-          <li>Step toward your target with your front foot as you release.</li>
-          <li>Snap your wrist flat at release — this is what makes the disc fly straight.</li>
-        </ol>
-        <div class="video-embed" style="position:relative;width:100%;padding-bottom:56.25%;height:0;margin-top:14px;border-radius:6px;border:1px solid var(--line);">
-          <iframe src="https://www.youtube-nocookie.com/embed/uho6dkdUGkM" title="How to Throw a Backhand" allowfullscreen loading="lazy"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
-        </div>
-        <p class="video-caption" style="font-family:var(--font-mono);font-size:10.5px;color:var(--gray);margin-top:7px;text-align:center;">
-          Reference: "How To Throw A Backhand" — Brodie Smith ·
-          <a href="https://www.youtube.com/watch?v=uho6dkdUGkM" target="_blank" rel="noopener" style="color:var(--crimson-bright);text-decoration:none;border-bottom:1px dotted var(--crimson-bright);">watch on YouTube</a>
-        </p>
-      </div>
-      <div class="card">
-        <span class="tag">Throw 2</span>
-        <h3>The Forehand (Flick)</h3>
-        <p>Harder to learn than the backhand, but essential — it lets you throw to the side a backhand can't reach.</p>
-        <div class="diagram-box">
-          <svg viewBox="0 0 240 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Forehand grip diagram: index finger braces inner rim, thumb on top">
-            <ellipse cx="120" cy="80" rx="72" ry="26" fill="rgba(115,0,15,0.15)" stroke="#a34d4d" stroke-width="3"/>
-            <ellipse cx="120" cy="80" rx="50" ry="15" fill="none" stroke="rgba(229,229,229,0.35)" stroke-width="1.5"/>
-            <ellipse cx="120" cy="63" rx="13" ry="8" fill="#FFFFFF"/>
-            <circle cx="76" cy="76" r="5" fill="#7d3737" stroke="#a34d4d" stroke-width="1.5"/>
-            <path d="M 100 100 L 145 105" stroke="#E5E5E5" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M 120 100 L 150 112" stroke="#E5E5E5" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M 140 98 L 155 118" stroke="#E5E5E5" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="76" y1="60" x2="76" y2="46" stroke="rgba(229,229,229,0.4)" stroke-width="1"/>
-            <text x="76" y="34" text-anchor="middle" class="diagram-label accent">INDEX FINGER BRACES INNER RIM</text>
-            <line x1="120" y1="118" x2="120" y2="132" stroke="rgba(229,229,229,0.4)" stroke-width="1"/>
-            <text x="120" y="148" text-anchor="middle" class="diagram-label">THUMB ON TOP · FINGERS SPREAD BENEATH</text>
-          </svg>
-        </div>
-        <ol class="steps">
-          <li>Grip with your index finger along the inside rim and other fingers spread underneath.</li>
-          <li>Hold the disc roughly at hip height, arm bent, elbow leading.</li>
-          <li>Uncoil your forearm like a whip, snapping the wrist forward at release.</li>
-          <li>Keep the disc flat — a tilted release is the most common beginner mistake.</li>
-        </ol>
-        <div class="video-embed" style="position:relative;width:100%;padding-bottom:56.25%;height:0;margin-top:14px;border-radius:6px;border:1px solid var(--line);">
-          <iframe src="https://www.youtube-nocookie.com/embed/8GqBPiYjrz8" title="How to Throw a Forehand (Flick)" allowfullscreen loading="lazy"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
-        </div>
-        <p class="video-caption" style="font-family:var(--font-mono);font-size:10.5px;color:var(--gray);margin-top:7px;text-align:center;">
-          Reference: "How To Throw A Forehand (Flick)" — Kurt Gibson ·
-          <a href="https://www.youtube.com/watch?v=8GqBPiYjrz8" target="_blank" rel="noopener" style="color:var(--crimson-bright);text-decoration:none;border-bottom:1px dotted var(--crimson-bright);">watch on YouTube</a>
-        </p>
-      </div>
-      <div class="card">
-        <h3>Practice tip</h3>
-        <p>Before throwing to a person, throw against a wall or with a partner from short distance (5–7 meters). Focus on a flat, flat, flat release before worrying about power or distance.</p>
-      </div>`
-  },
-  {
-    label: "Catching",
-    title: "Catching Basics",
-    sub: "Confident hands turn good throws into real possessions.",
-    body: `
-      <div class="card">
-        <span class="tag">Method 1</span>
-        <h3>The Pancake Catch</h3>
-        <p>The safest catch for beginners — use it whenever the disc is coming at chest height or below.</p>
-        <div class="diagram-box">
-          <svg viewBox="0 0 240 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pancake catch diagram: hands clap flat together, disc sandwiched in the middle">
-            <defs>
-              <marker id="arrD" markerWidth="8" markerHeight="8" refX="4" refY="6" orient="auto"><path d="M0,0 L4,6 L8,0" fill="none" stroke="#a34d4d" stroke-width="2"/></marker>
-              <marker id="arrU" markerWidth="8" markerHeight="8" refX="4" refY="0" orient="auto"><path d="M0,6 L4,0 L8,6" fill="none" stroke="#a34d4d" stroke-width="2"/></marker>
-            </defs>
-            <ellipse cx="120" cy="95" rx="60" ry="18" fill="rgba(115,0,15,0.2)" stroke="#a34d4d" stroke-width="2.5"/>
-            <path d="M 65 62 Q 120 48 175 62 Q 175 75 120 80 Q 65 75 65 62 Z" fill="rgba(229,229,229,0.08)" stroke="#E5E5E5" stroke-width="2"/>
-            <path d="M 65 128 Q 120 142 175 128 Q 175 115 120 110 Q 65 115 65 128 Z" fill="rgba(229,229,229,0.08)" stroke="#E5E5E5" stroke-width="2"/>
-            <path d="M 120 45 L 120 25" stroke="#a34d4d" stroke-width="2.5" marker-end="url(#arrD)"/>
-            <path d="M 120 145 L 120 165" stroke="#a34d4d" stroke-width="2.5" marker-end="url(#arrU)"/>
-            <text x="120" y="18" text-anchor="middle" class="diagram-label accent">HANDS CLAP FLAT TOGETHER</text>
-            <text x="120" y="182" text-anchor="middle" class="diagram-label">DISC SANDWICHED IN THE MIDDLE</text>
-          </svg>
-        </div>
-        <ol class="steps">
-          <li>Bring both hands together like clapping, one flat on top, one flat on bottom.</li>
-          <li>Watch the disc all the way into your hands — don't look away early.</li>
-          <li>Clap your hands shut around it the instant it arrives.</li>
-        </ol>
-        <div class="video-embed" style="position:relative;width:100%;padding-bottom:56.25%;height:0;margin-top:14px;border-radius:6px;border:1px solid var(--line);">
-          <iframe src="https://www.youtube-nocookie.com/embed/ycQgdCYSvSs" title="How to Pancake Catch" allowfullscreen loading="lazy"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
-        </div>
-        <p class="video-caption" style="font-family:var(--font-mono);font-size:10.5px;color:var(--gray);margin-top:7px;text-align:center;">
-          Reference: "Pro Tip #4 | How to Pancake (Clap Catch)" — Brodie Smith ·
-          <a href="https://www.youtube.com/watch?v=ycQgdCYSvSs" target="_blank" rel="noopener" style="color:var(--crimson-bright);text-decoration:none;border-bottom:1px dotted var(--crimson-bright);">watch on YouTube</a>
-        </p>
-      </div>
-      <div class="card">
-        <span class="tag">Method 2</span>
-        <h3>The Rim Catch (one hand)</h3>
-        <p>Used for discs above your head or out of pancake range. Learn this after the pancake feels natural.</p>
-        <div class="diagram-box">
-          <svg viewBox="0 0 240 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rim catch diagram: pinch outer rim with palm and fingers">
-            <ellipse cx="130" cy="60" rx="65" ry="20" fill="rgba(115,0,15,0.15)" stroke="#a34d4d" stroke-width="2.5"/>
-            <path d="M 75 65 Q 60 90 68 115 Q 74 128 85 122 Q 90 108 88 95" fill="rgba(229,229,229,0.08)" stroke="#E5E5E5" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M 68 100 L 50 108" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"/>
-            <path d="M 68 112 L 48 122" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"/>
-            <path d="M 72 122 L 54 134" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="70" cy="65" r="5" fill="#7d3737" stroke="#a34d4d" stroke-width="1.5"/>
-            <line x1="70" y1="65" x2="40" y2="50" stroke="rgba(229,229,229,0.4)" stroke-width="1"/>
-            <text x="40" y="38" text-anchor="middle" class="diagram-label accent">PINCH OUTER RIM WITH PALM &amp; FINGERS</text>
-            <text x="130" y="170" text-anchor="middle" class="diagram-label">GIVE SLIGHTLY ON CONTACT — DON'T CATCH STIFF-ARMED</text>
-          </svg>
-        </div>
-        <ul>
-          <li>Reach with one hand and pinch the outer rim between your palm and fingers</li>
-          <li>Give slightly with your arm on contact to absorb speed — don't catch with a stiff arm</li>
-        </ul>
-        <div class="video-embed" style="position:relative;width:100%;padding-bottom:56.25%;height:0;margin-top:14px;border-radius:6px;border:1px solid var(--line);">
-          <iframe src="https://www.youtube-nocookie.com/embed/RlT8SZ31Jdg" title="Two-Handed Rim Catch" allowfullscreen loading="lazy"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
-        </div>
-        <p class="video-caption" style="font-family:var(--font-mono);font-size:10.5px;color:var(--gray);margin-top:7px;text-align:center;">
-          Reference: "Ultimate 101: Two Handed Rim Catch" — USA Ultimate ·
-          <a href="https://www.youtube.com/watch?v=RlT8SZ31Jdg" target="_blank" rel="noopener" style="color:var(--crimson-bright);text-decoration:none;border-bottom:1px dotted var(--crimson-bright);">watch on YouTube</a>
-        </p>
-      </div>
-      <div class="card">
-        <h3>The one habit that matters most</h3>
-        <p>Always catch with two hands when you can. Speed and style come later — right now, secure possession every single time.</p>
-      </div>`
-  },
-  {
-    label: "On-Field Roles",
-    title: "On-Field Roles",
-    sub: "You don't need to master strategy yet — just know these two words. You'll hear them constantly.",
-    body: `
-      <div class="card">
-        <h3>Handler</h3>
-        <p>The player currently holding or about to receive the disc near the middle of the field. Handlers control the pace of the offense and make most of the short, precise throws that move the disc upfield safely.</p>
-      </div>
-      <div class="card">
-        <h3>Cutter</h3>
-        <p>A player who sprints into open space to receive a pass, usually further downfield. Cutting is about timing — breaking toward the disc at the right moment, not just running fast.</p>
-      </div>
-      <div class="card">
-        <h3>As a beginner</h3>
-        <p>You'll naturally try both roles early on. Don't force yourself into one — coaches at KM Ultimate will help you find where your instincts and comfort fit as you get more reps in.</p>
-      </div>`
-  },
-  {
-    label: "Spirit & Next Steps",
-    title: "Spirit of the Game & Your Next Steps",
-    sub: "The last chapter — the mindset that makes ultimate what it is, and how to take your first step onto the field with KM Ultimate.",
-    body: `
-      <div class="spirit-box">
-        <div class="sotg-word">Spirit of the Game</div>
-        <p>Ultimate relies on a spirit of sportsmanship that places the responsibility for fair play on every player. Competitive play is encouraged, but never at the expense of respect between players, honest calls, and the joy of the game itself.</p>
-      </div>
-      <div class="card">
-        <h3>How this shows up on the field</h3>
-        <ul>
-          <li>Call your own fouls and out-of-bounds honestly, even against yourself</li>
-          <li>Help new players understand a call instead of arguing it</li>
-          <li>Celebrate a great play by anyone — including the other team</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Your first steps with KM Ultimate</h3>
-        <ol class="steps">
-          <li>Come to a beginner-friendly practice session — no experience or gear required to start.</li>
-          <li>Borrow a disc from the club and get comfortable with the backhand throw first.</li>
-          <li>Join a small-sided pickup game (5v5 is common) to apply the rules in real time.</li>
-          <li>Ask a handler or cutter on your team to explain what they're seeing — players learn fastest from each other.</li>
-        </ol>
-      </div>
-      <div style="text-align:center; margin-top:24px;">
-        <button class="cta" data-signup>Welcome to the community, mafia</button>
-      </div>`
-  }
-];
+    </div>
 
-/* ============================================================
-   APP STATE & RENDERING
-   ============================================================ */
-const flightpath = document.getElementById('flightpath');
-const main       = document.getElementById('main');
-let current = 0;
+    <div class="card">
+      <h3>Our Goals</h3>
+      <ul>
+        <li>Develop skilled, knowledgeable, and spirited Ultimate players in Laguna.</li>
+        <li>Offer regular, high-quality training open to members of all levels.</li>
+        <li>Cater clinics and outreach programs to schools and universities across Laguna, introducing and growing the sport at the institutional level.</li>
+        <li>Build a supportive network where experienced players mentor and uplift newer athletes.</li>
+        <li>Foster a positive reputation for Kid Mafia and for Ultimate Frisbee throughout the province.</li>
+      </ul>
+    </div>
 
-/** Render the flightpath step navigation bar. */
-function renderNav() {
-  flightpath.innerHTML = chapters.map((c, i) => `
-    <button class="stop ${i === current ? 'active' : ''}" data-index="${i}"
-            aria-label="Go to chapter ${i + 1}: ${c.label}"
-            aria-current="${i === current ? 'step' : 'false'}">
-      <span class="dot">${i === 0 ? '★' : i}</span>
-      <span class="label">${c.label}</span>
-    </button>`).join('');
-  flightpath.querySelectorAll('.stop').forEach(btn => {
-    btn.addEventListener('click', () => goTo(parseInt(btn.dataset.index)));
-  });
-}
+    <h3 style="font-weight:800;color:var(--km-white);text-transform:uppercase;font-size:18px;margin:26px 0 14px;">Our Values</h3>
+    <div class="values-grid">
+      <div class="value-card"><h4>Family First</h4><p>We treat every member with respect and support. No one is left behind.</p></div>
+      <div class="value-card"><h4>Spirit of the Game</h4><p>We compete fiercely while upholding integrity, honesty, and sportsmanship.</p></div>
+      <div class="value-card"><h4>Growth Mindset</h4><p>Every practice and every game is an opportunity to improve.</p></div>
+      <div class="value-card"><h4>Community Impact</h4><p>We actively help other players in Laguna raise their level of play.</p></div>
+      <div class="value-card"><h4>Accountability</h4><p>We show up on time, prepared, and ready to contribute.</p></div>
+    </div>
+  </section>
 
-/** Render the active chapter panel plus prev/next controls. */
-function renderPanel() {
-  const c = chapters[current];
-  main.innerHTML = `
-    <article class="panel">
-      <div class="panel-head">
-        <span class="panel-num">${String(current + 1).padStart(2,'0')} / ${String(chapters.length).padStart(2,'0')}</span>
+  <!-- ================= 3. TRAINING ================= -->
+  <section class="block" id="training" aria-labelledby="training-title">
+    <div class="section-head">
+      <span class="section-num">03 / Training Schedule &amp; Venue</span>
+      <h2 class="section-title" id="training-title">See You on the Field</h2>
+      <p class="section-sub">Consistent training is the foundation of our development. All members are expected to know and follow the regular schedule.</p>
+    </div>
+
+    <div class="schedule-card">
+      <div class="schedule-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
       </div>
-      <h2 class="panel-title">${c.title}</h2>
-      <p class="panel-sub">${c.sub}</p>
-      ${c.body}
-      <nav class="nav-buttons" aria-label="Chapter navigation">
-        <button class="nav-btn" id="prevBtn" ${current === 0 ? 'disabled' : ''}>← Previous</button>
-        <button class="nav-btn" id="nextBtn" ${current === chapters.length - 1 ? 'disabled' : ''}>Next →</button>
-      </nav>
-    </article>`;
-  document.getElementById('prevBtn')?.addEventListener('click', () => goTo(current - 1));
-  document.getElementById('nextBtn')?.addEventListener('click', () => goTo(current + 1));
+      <div>
+        <div class="sched-line-1">Regular Training</div>
+        <div class="sched-line-2">Every Tuesday Night</div>
+        <div class="sched-line-3">7:00 PM onwards</div>
+        <div class="sched-line-4">Carmeltown Football Field · Calamba, Laguna</div>
+      </div>
+    </div>
 
-  // Smooth scroll to top on every navigation.
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    <div class="card landmarks">
+      <h3>How to Find Us — Nearby Landmarks</h3>
+      <ul>
+        <li><strong>Nuvali</strong> — major mixed-use development and commercial area nearby</li>
+        <li><strong>Solenad</strong> — popular shopping and dining destination in Nuvali</li>
+        <li><strong>San Sebastian College – Recoletos de Canlubang</strong> — educational institution in the Canlubang area</li>
+      </ul>
+    </div>
 
-  // Update URL hash for shareable/bookmarkable deep links (SEO-friendly routing).
-  history.replaceState(null, '', '#' + slug(c.title));
-}
+    <div class="note-strip">
+      ⏱️ Please arrive <strong style="color:#e8e8e8">10–15 minutes early</strong>. Confirm any schedule changes via the official team chat. Occasional additional sessions or clinic days may be announced separately.
+    </div>
+  </section>
 
-/** Navigate to chapter index i. */
-function goTo(i) {
-  if (i < 0 || i >= chapters.length) return;
-  current = i;
-  renderNav();
-  renderPanel();
-  // Keep the active flightpath stop visible on narrow screens.
-  flightpath.querySelector('.stop.active')?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-}
+  <!-- ================= 4. PEOPLE ================= -->
+  <section class="block" id="people" aria-labelledby="people-title">
+    <div class="section-head">
+      <span class="section-num">04 / The People Behind the Mafia</span>
+      <h2 class="section-title" id="people-title">Leadership &amp; Coaching Staff</h2>
+      <p class="section-sub">The board and committee heads who keep the family running — on and off the field.</p>
+    </div>
 
-function slug(s) {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
+    <div class="committee-sub">Board of Directors</div>
+    <!-- Order per leadership: Jarred, Arthur, Joaquin, Don, Jari, John Depp.
+         Each avatar is a placeholder — swap the inner <svg> for <img src="photos/name.jpg" alt=""> when photos arrive. -->
+    <div class="people-grid">
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jarred Leysa</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Arthur Baral</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Joaquin Del Rosario</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Don Baylon</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jari Villanueva</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">John Depp Adorna</div></div>
+    </div>
 
-/* ============================================================
-   CTA MODAL — functional sign-up trigger
-   ============================================================ */
-const modal      = document.getElementById('signupModal');
-const modalClose = document.getElementById('modalClose');
-const modalGo    = document.getElementById('modalCta');
+    <div class="committee-sub">Training Committee</div>
+    <!-- Order: Jarred, Arthur, Yno, Jari, Joaquin, Stella, Katzen, Aaliyah -->
+    <div class="people-grid">
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jarred Leysa</div><div class="p-role">Training Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Arthur Baral</div><div class="p-role">Offense Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Yno Villanueva</div><div class="p-role">Defense Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jari Villanueva</div><div class="p-role">S&amp;C Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Joaquin Del Rosario</div><div class="p-role">Begs Group Head<br>Equipment Manager</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Stella Escasa</div><div class="p-role">Womens Group Head<br>Equipment Manager</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Katzen Oliva</div><div class="p-role">Begs Offense Coach</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Aaliyah Gutierrez</div><div class="p-role">Begs Defense Coach</div></div>
+    </div>
+  </section>
+</main>
 
-function openModal()  { modal.classList.add('open'); modalClose.focus(); }
-function closeModal() { modal.classList.remove('open'); }
-
-// Delegate clicks: any [data-signup] element opens the modal.
-document.addEventListener('click', e => {
-  if (e.target.closest('[data-signup]')) openModal();
-});
-modalClose.addEventListener('click', closeModal);
-modalGo.addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-/* Keyboard shortcuts: ← / → move between chapters. */
-document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight') goTo(current + 1);
-  if (e.key === 'ArrowLeft')  goTo(current - 1);
-});
-
-/* Deep-link support: open #chapter-slug directly if valid. */
-(function initFromHash() {
-  const target = chapters.findIndex(c => slug(c.title) === location.hash.slice(1));
-  current = target >= 0 ? target : 0;
-  renderNav();
-  renderPanel();
-})();
-</script>
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="f-logo">KM<span class="red">·</span>ULTIMATE<sup style="font-size:10px;color:var(--km-silver);">'15</sup></div>
+  <p>KID MAFIA ULTIMATE — HONING SKILLS · BUILDING COMMUNITY · PLAYING WITH HEART<br>CALAMBA, LAGUNA</p>
+  <nav aria-label="Footer navigation">
+    <a href="#welcome">Welcome</a>
+    <a href="#about">About</a>
+    <a href="#training">Training</a>
+    <a href="#people">People</a>
+    <a href="./beginners-playbook/index.html">Beginner's Playbook</a>
+    <a href="https://www.facebook.com/KM.Ultimate" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/km_ultimate" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+</footer>
 
 </body>
 </html>
