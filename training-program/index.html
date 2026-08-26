@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- KM ULTIMATE — MEMBERS TRAINING PROGRAM (exclusive, registration-gated)
+     Brand: #73000F · #202828 · #A7A7A7 · #FFFFFF -->
+
+<title>Members Training Program · KM Ultimate</title>
+<meta name="description" content="Exclusive Kid Mafia Ultimate member training programs — Beginner, Intermediate, and Elite pathways with full modules, drills, and references.">
+<meta name="robots" content="noindex"> <!-- exclusive members page -->
+<meta name="theme-color" content="#202828">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --km-crimson:#73000F; --km-crimson-hi:#9c1220;
+  --km-charcoal:#202828; --km-charcoal-deep:#171D1D;
+  --km-silver:#A7A7A7; --km-white:#FFFFFF;
+  --km-line:rgba(167,167,167,0.2);
+  --font-main:'Work Sans',sans-serif; --font-mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{background:var(--km-charcoal-deep);color:#e8e8e8;font-family:var(--font-main);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;background-image:radial-gradient(circle at 10% 0%,rgba(115,0,15,.22),transparent 40%),radial-gradient(circle at 92% 100%,rgba(115,0,15,.10),transparent 45%)}
+:focus-visible{outline:2px solid var(--km-crimson-hi);outline-offset:3px}
+
+/* NAV */
+.site-nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 20px;background:rgba(23,29,29,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--km-line)}
+.site-nav .logo{font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:17px;color:var(--km-white);text-decoration:none;line-height:1}
+.site-nav .logo .red{color:var(--km-crimson-hi)}
+.site-nav .logo .tag{font-size:9px;vertical-align:super;color:var(--km-silver);font-weight:700}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--km-silver);padding:13px 12px;border-radius:4px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--km-white);background:rgba(115,0,15,.35)}
+@media(max-width:680px){.nav-links a{padding:11px 6px;font-size:9px}}
+
+/* HERO */
+.hero{position:relative;text-align:center;padding:44px 20px 40px;overflow:hidden}
+.hero .bg-arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5}
+.hero-inner{position:relative;max-width:720px;margin:0 auto}
+.brandmark{width:clamp(58px,10vw,78px);display:block;margin:0 auto 12px}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--km-silver);margin-bottom:10px}
+h1{font-weight:800;font-size:clamp(28px,6vw,48px);line-height:1.05;text-transform:uppercase;color:var(--km-white)}
+h1 .red{color:var(--km-crimson);text-shadow:2px 2px 0 rgba(255,255,255,.12)}
+.hero-tagline{margin-top:12px;font-size:clamp(14px,2.4vw,16px);color:#dcdcdc;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.65}
+.lock-note{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--font-mono);font-size:11px;color:var(--km-silver);border:1px dashed rgba(156,18,32,.6);border-radius:20px;padding:8px 16px}
+
+/* GATE (sign-up) */
+.gate{max-width:520px;margin:26px auto 60px;padding:0 20px;text-align:center}
+.gate-card{background:var(--km-charcoal);border:1px solid var(--km-line);border-radius:12px;padding:28px 24px}
+.gate-card h2{font-weight:800;text-transform:uppercase;font-size:20px;margin-bottom:10px;color:var(--km-white)}
+.gate-card p{font-size:14px;line-height:1.65;color:var(--km-silver);margin-bottom:20px}
+
+/* password row */
+.pass-row{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.pass-row input{
+  flex:1;min-width:200px;min-height:50px;
+  background:var(--km-charcoal-deep);
+  border:2px solid rgba(167,167,167,.25);
+  border-radius:4px;
+  color:var(--km-white);
+  font-family:var(--font-main);font-size:14.5px;
+  padding:12px 16px;
+}
+.pass-row input::placeholder{color:var(--km-silver)}
+.pass-row input:focus{outline:none;border-color:var(--km-crimson-hi)}
+.pass-hint{margin-top:12px;font-family:var(--font-mono);font-size:10.5px;color:var(--km-silver);line-height:1.7}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 26px;font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;border:1px solid rgba(255,255,255,.15);background:var(--km-crimson);color:var(--km-white);cursor:pointer;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s}
+.btn:hover{background:var(--km-crimson-hi);transform:scale(1.02);box-shadow:0 6px 22px rgba(115,0,15,.55)}
+.btn:active{transform:scale(.98)}
+
+/* PROGRAMS */
+.programs{max-width:900px;margin:0 auto;padding:10px 20px 70px;display:none}
+.programs.show{display:block}
+.path-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.path-tab{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--km-silver);background:var(--km-charcoal);border:1px solid var(--km-line);border-radius:4px;padding:13px 18px;min-height:48px;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.path-tab:hover{border-color:var(--km-crimson-hi);color:var(--km-white)}
+.path-tab.active{background:var(--km-crimson);border-color:var(--km-crimson-hi);color:var(--km-white)}
+
+.program{animation:popIn .3s ease}
+@keyframes popIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.program{animation:none}}
+
+.prog-head{margin-bottom:20px}
+.prog-level{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--km-crimson-hi)}
+.prog-head h2{font-weight:800;text-transform:uppercase;font-size:clamp(24px,5vw,34px);color:var(--km-white);line-height:1.15;margin-top:4px}
+.audience{margin-top:10px;background:var(--km-charcoal);border-left:3px solid var(--km-crimson);border-radius:0 6px 6px 0;padding:13px 16px;font-size:13.5px;line-height:1.6}
+.audience b{color:var(--km-white)}
+.objective{margin-top:10px;font-size:13.5px;line-height:1.6;color:var(--km-silver)}
+
+.module{background:var(--km-charcoal);border:1px solid var(--km-line);border-radius:8px;padding:20px 22px;margin-bottom:14px}
+.module-head{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.module-num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--km-crimson);color:var(--km-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:13px}
+.module-head h3{font-weight:800;text-transform:uppercase;font-size:15.5px;letter-spacing:.02em;color:var(--km-white);flex:1;line-height:1.3}
+.caret{font-family:var(--font-mono);color:var(--km-silver);transition:transform .25s ease}
+.module.open .caret{transform:rotate(180deg)}
+.module-body{display:none;padding-top:14px;border-top:1px dashed var(--km-line);margin-top:14px}
+.module.open .module-body{display:block}
+.module-body ul{list-style:none}
+.topic{padding:9px 0 9px 24px;position:relative;font-size:14px;line-height:1.6;border-bottom:1px dashed rgba(167,167,167,.12)}
+.topic:last-child{border-bottom:none}
+.topic::before{content:'▸';position:absolute;left:4px;color:var(--km-crimson-hi)}
+.topic b{color:var(--km-white)}
+
+.refs{margin-top:14px;background:rgba(115,0,15,.1);border:1px dashed rgba(156,18,32,.5);border-radius:6px;padding:12px 15px}
+.refs .r-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--km-crimson-hi);margin-bottom:7px}
+.refs a{display:inline-block;font-family:var(--font-mono);font-size:11px;color:#dcdcdc;text-decoration:none;border-bottom:1px dotted var(--km-crimson-hi);margin:2px 14px 4px 0;min-height:24px}
+.refs a:hover{color:var(--km-white)}
+
+footer{border-top:1px solid var(--km-line);text-align:center;padding:26px 20px 38px;margin-top:30px}
+footer p{font-family:var(--font-mono);font-size:10.5px;color:var(--km-silver);letter-spacing:.05em;line-height:1.8}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="logo" href="../index.html">KM<span class="red">·</span>ULTIMATE<sup class="tag">'15</sup></a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../beginners-playbook/index.html">Playbook</a>
+    <a href="../rules-quiz/index.html">Pop Quiz</a>
+    <a href="./index.html">Training Program</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="bg-arcs" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M -50 320 Q 600 -120 1260 220" stroke="#73000F" stroke-width="1.5" fill="none" opacity="0.55"/>
+    <path d="M -50 360 Q 620 -60 1260 260" stroke="#A7A7A7" stroke-width="1" fill="none" opacity="0.16" stroke-dasharray="8 10"/>
+    <ellipse cx="980" cy="110" rx="42" ry="12" fill="#202828" stroke="#A7A7A7" stroke-width="1.5"/>
+    <ellipse cx="980" cy="106" rx="26" ry="7" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.35"/>
+  </svg>
+  <div class="hero-inner">
+    <svg class="brandmark" viewBox="0 0 100 84" role="img" aria-label="Kid Mafia Ultimate brandmark">
+      <path d="M 30 34 Q 32 10 50 8 Q 68 10 70 34 L 70 40 L 30 40 Z" fill="#FFFFFF"/>
+      <rect x="30" y="34" width="40" height="7" fill="#73000F"/>
+      <path d="M 18 47 Q 24 41 50 41 Q 76 41 82 47 Q 78 53 50 53 Q 22 53 18 47 Z" fill="#FFFFFF"/>
+      <path d="M 30 62 Q 50 54 70 62 L 74 80 L 26 80 Z" fill="#FFFFFF"/>
+      <ellipse cx="90" cy="72" rx="8" ry="3" fill="#73000F"/>
+    </svg>
+    <div class="eyebrow">Members Only · Registration Required</div>
+    <h1>Training <span class="red">Program</span></h1>
+    <p class="hero-tagline">Three full development pathways — Beginner, Intermediate, and Elite — built by the KM Ultimate Training Committee to take you from first throw to field general.</p>
+    <span class="lock-note">🔒 Exclusive for registered players</span>
+  </div>
+</header>
+
+<!-- REGISTRATION GATE -->
+<div class="gate" id="gateScreen">
+  <div class="gate-card">
+    <h2>Players Only 🥏</h2>
+    <p>This training program is exclusive to players who have registered with KM Ultimate. If you haven't registered yet, it takes two minutes — fill out the contact form and the family will take care of the rest.</p>
+    <!-- CTA opens the official registration form -->
+    <a class="btn" id="registerBtn"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSfqV-mGNlxkg98NBxMEuBWJmeI__QKVMvcfS7gBfNEYXbDVeQ/viewform?usp=publish-editor"
+       target="_blank" rel="noopener">Register Now →</a>
+
+    <!-- Password entry for registered players.
+         ⚠ To change the team password: edit the TEAM_PASSWORD value in the <script> at the bottom of this file. -->
+    <div class="pass-row">
+      <input type="password" id="passInput" placeholder="Enter member password" autocomplete="current-password"
+             aria-label="Member password">
+      <button class="btn" id="unlockBtn">Unlock 🔓</button>
+    </div>
+    <p class="pass-hint" id="passHint">Don't have the password? Ask your Training Head or check the official team chat.</p>
+  </div>
+</div>
+
+<!-- PROGRAM CONTENT (revealed after gate) -->
+<main class="programs" id="programContent">
+  <div class="path-tabs" role="tablist" aria-label="Program levels">
+    <button class="path-tab active" data-path="beg" role="tab">Beginner</button>
+    <button class="path-tab" data-path="int" role="tab">Intermediate</button>
+    <button class="path-tab" data-path="eli" role="tab">Elite</button>
+  </div>
+  <!-- ============ BEGINNER PROGRAM ============ -->
+  <div class="program" id="prog-beg">
+    <div class="prog-head">
+      <span class="prog-level">Program 01 · Fundamentals &amp; Field Awareness</span>
+      <h2>Beginner Program</h2>
+      <div class="audience"><b>Target Audience:</b> New players, athletes transitioning from other sports, or those with zero frisbee exposure.</div>
+      <p class="objective"><b style="color:var(--km-white)">Core Objective:</b> Build consistent throw/catch mechanics, understand fundamental field space, and learn self-officiating.</p>
+    </div>
+
+    <div class="module open">
+      <div class="module-head"><span class="module-num">M1</span><h3>Throwing Mechanics &amp; Grip Work</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Backhand:</b> Stance, pivot foot placement, pulling across the chest, and flat wrist-snap release.</li>
+        <li class="topic"><b>Forehand (Flick):</b> Middle-finger rim grip, leading with the elbow, wrist-whip motion, and eliminating disc wobble.</li>
+        <li class="topic"><b>Hammer (Basic introduction):</b> Upside-down grip and overhead release for high-floating passes.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="../beginners-playbook/index.html#throwing-basics" >Beginner's Playbook — Throwing Basics</a>
+        <a href="https://www.youtube.com/watch?v=uho6dkdUGkM" target="_blank" rel="noopener">Video: How To Throw A Backhand (Brodie Smith)</a>
+        <a href="https://www.youtube.com/watch?v=8GqBPiYjrz8" target="_blank" rel="noopener">Video: Forehand Flick Tutorial (Kurt Gibson)</a>
+        <a href="https://watchufa.com/series/ultimate-101" target="_blank" rel="noopener">Ultimate 101 Series (UFA)</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M2</span><h3>Catching &amp; Receiving</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Pancake (Clap) Catch:</b> Two-handed top/bottom sandwich for low to chest-high discs.</li>
+        <li class="topic"><b>Rim Catch:</b> Two-handed rim tracking for high or wide passes.</li>
+        <li class="topic"><b>Attacking the Disc:</b> Sprinting toward the throw instead of waiting for it to arrive.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="../beginners-playbook/index.html#catching-basics">Playbook — Catching Basics</a>
+        <a href="https://www.youtube.com/watch?v=ycQgdCYSvSs" target="_blank" rel="noopener">Video: Pancake (Clap) Catch (Brodie Smith)</a>
+        <a href="https://www.youtube.com/watch?v=RlT8SZ31Jdg" target="_blank" rel="noopener">Video: Two-Handed Rim Catch (USA Ultimate)</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M3</span><h3>Field Positioning &amp; Basic Offense</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Vertical Stack (Vert Stack):</b> Understanding the central line, active cutter positions, and handler resets.</li>
+        <li class="topic"><b>Basic Cutting Rules:</b> Clearing out space, making sharp 45-degree cuts, and avoiding clog points.</li>
+        <li class="topic"><b>Dump &amp; Reset:</b> Executing 5-yard backward/lateral drop passes when the stall count reaches 6.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://www.youtube.com/watch?v=JYw-Xa9fD8g" target="_blank" rel="noopener">Video: How To Cut in Ultimate — 9 Beginner Tips</a>
+        <a href="https://www.youtube.com/watch?v=TLjUGabpDa8" target="_blank" rel="noopener">Video: Pivoting &amp; Faking (KC Ultimate)</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M4</span><h3>Defensive Basics &amp; Rules</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Individual Marking:</b> Force side (Home/Away or Backhand/Forehand force), maintaining legal contact distance, and active stall counting (1 to 10).</li>
+        <li class="topic"><b>Person-to-Person (Man) Defense:</b> Positioning between the cutter and the thrower, looking at the belly button, not the disc.</li>
+        <li class="topic"><b>Rules &amp; Spirit of the Game (SOTG):</b> Self-officiating, calling fouls/travels/picks, and resolving disputes with mutual respect.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://rules.wfdf.org/" target="_blank" rel="noopener">Official WFDF Rules of Ultimate 2025–2028</a>
+        <a href="../rules-quiz/index.html">🎯 Test yourself: Rules Pop Quiz</a>
+        <a href="https://www.youtube.com/watch?v=9rDJ8vLjtk0" target="_blank" rel="noopener">Video: How To Mark In Ultimate (Brodie Smith)</a>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ============ INTERMEDIATE PROGRAM ============ -->
+  <div class="program" id="prog-int" style="display:none">
+    <div class="prog-head">
+      <span class="prog-level">Program 02 · Spatial Intelligence &amp; Tactical Mechanics</span>
+      <h2>Intermediate Program</h2>
+      <div class="audience"><b>Target Audience:</b> Club-level players, league regulars, and athletes with 1–2 years of structured play.</div>
+      <p class="objective"><b style="color:var(--km-white)">Core Objective:</b> Master variable throwing angles, fluid movement patterns, and adaptive team defense.</p>
+    </div>
+
+    <div class="module open">
+      <div class="module-head"><span class="module-num">M1</span><h3>Advanced Throwing &amp; Break-Marking</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Throwing Variations:</b> Inside-out (IO) and Outside-in (OI) releases for both forehand and backhand.</li>
+        <li class="topic"><b>Break-Marking:</b> Stepping around a mark to throw to the closed side of the field using low-release fakes.</li>
+        <li class="topic"><b>Wind Adjustments:</b> Reading wind direction (headwind, tailwind, crosswind) and adjusting disc angle/edge accordingly.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://www.youtube.com/watch?v=61Z-8M6pl68" target="_blank" rel="noopener">Video: Backhand &amp; Flick Masterclass (cchanulti)</a>
+        <a href="https://www.youtube.com/watch?v=rzyNJy9wdhU" target="_blank" rel="noopener">Video: Adding Touch to Your Throws — 3 Drills (Rowan McDonnell)</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M2</span><h3>Defensive Structures</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Zone Defenses:</b> Understanding roles in a 3-3-1 or 4-2-1 structure (Cup/Mark, Short Deep, Wings, Deep Deep).</li>
+        <li class="topic"><b>Switching &amp; Bracket Defense:</b> Communication protocols for passing off cutters in high-risk field sectors.</li>
+        <li class="topic"><b>Flash Defenses:</b> Generating unexpected turnovers by sagging off non-threatening handlers to clog lane options.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://www.youtube.com/watch?v=28bXAb93Tfk" target="_blank" rel="noopener">Video: 9 Common Marking Mistakes &amp; Fixes (Kurt Gibson)</a>
+        <a href="https://www.youtube.com/watch?v=eD3Xfz91pBU" target="_blank" rel="noopener">Video: Physical Downfield Defense (Everything Ultimate)</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M3</span><h3>Offensive Systems</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Horizontal Stack (H-Stack):</b> Creating wide isolation lanes for middle cutters and exploiting deep space.</li>
+        <li class="topic"><b>Give-and-Go Flow:</b> Immediate follow-through cuts by handlers after releasing a pass to keep the defense shifting.</li>
+        <li class="topic"><b>End-Zone Offense:</b> Tight-space isolations, front-of-stack clears, and high-percentage score options.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://www.youtube.com/watch?v=3nVRrNTrQdI" target="_blank" rel="noopener">Video: First Person Ultimate w/ Thoughts (cchanulti)</a>
+        <a href="https://www.youtube.com/watch?v=c0b_B8gz0Js" target="_blank" rel="noopener">Film Study: USA vs Belgium — U-24 Worlds Final</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M4</span><h3>Athleticism &amp; Game Conditioning</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Footwork Drills:</b> Ladder drills for lateral quickness, deceleration mechanics, and rapid pivot transitions.</li>
+        <li class="topic"><b>Sprint Repeatability:</b> High-intensity interval training (HIIT) mimicking the fast-rest-fast work-to-rest ratio of live points.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://www.youtube.com/watch?v=hKx0RgQ2VXI" target="_blank" rel="noopener">Video: Throw 75 Feet Further — Basics (Latitude 64)</a>
+        <a href="../index.html#training">KM Ultimate Tuesday Sessions — S&amp;C with Jari Villanueva</a>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ============ ELITE PROGRAM ============ -->
+  <div class="program" id="prog-eli" style="display:none">
+    <div class="prog-head">
+      <span class="prog-level">Program 03 · Elite Execution &amp; Mental Mastery</span>
+      <h2>Elite Program</h2>
+      <div class="audience"><b>Target Audience:</b> National team candidates, high-tier club captains, and elite competitive players.</div>
+      <p class="objective"><b style="color:var(--km-white)">Core Objective:</b> High-speed decision-making, physical dominance, situational tactical mastery, and leadership.</p>
+    </div>
+
+    <div class="module open">
+      <div class="module-head"><span class="module-num">M1</span><h3>High-Velocity &amp; Situational Throwing</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Full-Field Hucks:</b> Releasing 50+ yard hucks under intense pressure with precise touch, flight-path control, and edge stability.</li>
+        <li class="topic"><b>High-Pressure Releases:</b> Off-axis throws, Scoobers, Blades, High Releases, and inverted passes under mark pressure.</li>
+        <li class="topic"><b>Micro-Fakes:</b> Using eye level, shoulder twitches, and pivot adjustments to manipulate mark hips without throwing.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://www.youtube.com/watch?v=onlFPdnNg-w" target="_blank" rel="noopener">Video: Huck A Backhand FAR (Kurt Gibson)</a>
+        <a href="https://www.youtube.com/watch?v=OkM_etAh-hA" target="_blank" rel="noopener">Video: Huck A Forehand FAR (Kurt Gibson)</a>
+        <a href="https://www.youtube.com/watch?v=M_ivEG2M7Gc" target="_blank" rel="noopener">Video: High Release Flick (Eric Deng)</a>
+        <a href="https://www.youtube.com/watch?v=NE7-Kohz3jI" target="_blank" rel="noopener">Video: The Scoober (Rowan McDonnell)</a>
+        <a href="https://www.youtube.com/watch?v=9Ms3ZN7kuI8" target="_blank" rel="noopener">Video: The Hammer (Brodie Smith)</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M2</span><h3>Tactical Flexibility &amp; In-Game Adjustments</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Matchup-Based Offense:</b> Real-time adaptation to defensive switches, zone-to-person transitions, and wind shifts.</li>
+        <li class="topic"><b>Junk &amp; Transition Defenses:</b> Disrupty defenses (e.g., "Person out of Zone" or "Zone to Man on pass 3") designed to drain stall counts and force low-percentage deep shots.</li>
+        <li class="topic"><b>Counter-Tactics:</b> Beating high-pressure poaching, bracket traps, and physical double-teaming in the backfield.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://www.youtube.com/watch?v=8Bjw845MKtA" target="_blank" rel="noopener">Video: How To Beat ANY Mark (Kurt Gibson)</a>
+        <a href="https://www.youtube.com/watch?v=wzpnOuEDWpM" target="_blank" rel="noopener">Video: Avoid These 4 Forehand Mistakes (Kurt Gibson)</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M3</span><h3>High-Performance Athletic Training</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>Plyometrics &amp; Vertical Jump:</b> Power production for layout catches, sky contests, and explosive multi-directional launches.</li>
+        <li class="topic"><b>Injury Prevention (Prehab):</b> Hamstring strengthening, ankle mobility, hip flexor stability, and shoulder cuff maintenance.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="../index.html#people">Consult: Jari Villanueva — S&amp;C Head, KM Ultimate Training Committee</a>
+      </div></div>
+    </div>
+
+    <div class="module">
+      <div class="module-head"><span class="module-num">M4</span><h3>Elite Mindset &amp; On-Field Leadership</h3><span class="caret">▼</span></div>
+      <div class="module-body"><ul>
+        <li class="topic"><b>In-Game Analytics:</b> Tracking completion ratios, turn points, and high-value turnover sectors to refine strategy mid-game.</li>
+        <li class="topic"><b>Clutch Performance:</b> Maintaining composure under cap-point pressure, fatigue management, and managing game pacing.</li>
+        <li class="topic"><b>Leadership &amp; Communication:</b> Delivering concise sidestack feedback, calling effective line-substitutions, and maintaining positive team culture.</li>
+      </ul>
+      <div class="refs"><div class="r-title">📚 References</div>
+        <a href="https://rules.wfdf.org/" target="_blank" rel="noopener">Official WFDF Rules — captain responsibilities &amp; Spirit Stoppages</a>
+        <a href="../index.html#about">KM Ultimate Values — leadership the Mafia way</a>
+      </div></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>KID MAFIA ULTIMATE · CALAMBA, LAGUNA<br>TRAINING COMMITTEE — HONING SKILLS · BUILDING COMMUNITY · PLAYING WITH HEART</p>
+</footer>
+
+<script>
+/* ---------- PASSWORD GATE ----------
+   ⚠ CHANGE THE TEAM PASSWORD HERE: */
+const TEAM_PASSWORD = "mafia15";
+// Session unlock: stays unlocked for the whole browser session once entered.
+const UNLOCK_KEY = 'km-training-unlocked';
+
+function tryUnlock() {
+  const val = document.getElementById('passInput').value;
+  const hint = document.getElementById('passHint');
+  if (val === TEAM_PASSWORD) {
+    sessionStorage.setItem(UNLOCK_KEY, '1');
+    revealProgram();
+  } else {
+    hint.textContent = '❌ Wrong password — double-check with your Training Head or the team chat.';
+    hint.style.color = '#c94b4b';
+    document.getElementById('passInput').value = '';
+    document.getElementById('passInput').focus();
+  }
+}
+
+function revealProgram() {
+  document.getElementById('gateScreen').style.display = 'none';
+  document.getElementById('programContent').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('unlockBtn').addEventListener('click', tryUnlock);
+document.getElementById('passInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+
+/* Auto-reveal if already unlocked this session */
+if (sessionStorage.getItem(UNLOCK_KEY) === '1') revealProgram();
+
+/* ---------- PATH TABS ---------- */
+document.querySelectorAll('.path-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.path-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.program').forEach(p => p.style.display = 'none');
+    tab.classList.add('active');
+    document.getElementById('prog-' + tab.dataset.path).style.display = 'block';
+  });
+});
+
+/* ---------- ACCORDION MODULES ---------- */
+function bindAccordions() {
+  document.querySelectorAll('.module-head').forEach(h => {
+    h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
+  });
+}
+bindAccordions();
+</script>
+
+</body>
+</html>
