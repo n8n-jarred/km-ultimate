@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     KM ULTIMATE — MAIN SITE (HOME)
+     Official Brand Style Guide implementation:
+       Crimson #73000F · Charcoal #202828 · Silver #A7A7A7 · White
+       Typeface: Aftika (fallback: Work Sans, heavy weights)
+     Sub-page: /beginners-playbook/
+     ============================================================ -->
+
+<title>Kid Mafia Ultimate · Laguna | Community & Player Development</title>
+<meta name="description" content="Kid Mafia Ultimate is a Laguna-based ultimate frisbee community developing players on and off the field. Weekly Tuesday night training in Calamba — all levels welcome. Honing skills, building community, playing with heart.">
+<meta name="keywords" content="Kid Mafia Ultimate, KM Ultimate, ultimate frisbee Laguna, frisbee Calamba, Nuvali frisbee, Carmeltown field, ultimate Philippines">
+<meta name="author" content="Kid Mafia Ultimate">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#202828">
+
+<link rel="canonical" href="./index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kid Mafia Ultimate · Laguna">
+<meta property="og:description" content="More than a frisbee team — a community developing Ultimate players across Laguna. Training every Tuesday night, Carmeltown Football Field, Calamba.">
+<meta property="og:site_name" content="Kid Mafia Ultimate">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   1. OFFICIAL BRAND TOKENS
+   ============================================================ */
+:root {
+  --km-crimson: #73000F;
+  --km-crimson-hi: #9c1220;          /* hover/brighten state */
+  --km-charcoal: #202828;
+  --km-charcoal-deep: #171d1d;       /* page background */
+  --km-silver: #A7A7A7;
+  --km-white: #FFFFFF;
+  --km-line: rgba(167,167,167,0.2);
+  --font-main: 'Work Sans', sans-serif;   /* Aftika fallback — heavy weights */
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+html, body {
+  background: var(--km-charcoal-deep);
+  color: var(--km-white);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(115,0,15,0.22), transparent 38%),
+    radial-gradient(circle at 92% 100%, rgba(115,0,15,0.12), transparent 44%);
+}
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--km-crimson); outline-offset: 3px; }
+
+/* ============================================================
+   2. COMPACT TOP NAV — no animation, slim & aesthetic
+   ============================================================ */
+.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px;
+  padding: 8px 20px;
+  background: rgba(23,29,29,0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--km-line);
+}
+.site-nav .logo {
+  font-family: var(--font-main);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 17px;
+  color: var(--km-white);
+  text-decoration: none;
+  line-height: 1;
+}
+.site-nav .logo .red { color: var(--km-crimson-hi); }
+.site-nav .logo .tag {
+  font-size: 9px;
+  vertical-align: super;
+  color: var(--km-silver);
+  font-weight: 700;
+}
+
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--km-silver);
+  padding: 13px 12px;
+  border-radius: 4px;
+  transition: color .2s ease, background .2s ease;
+}
+.nav-links a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
+@media (max-width: 640px) { .nav-links a { padding: 11px 7px; font-size: 10px; } }
+
+/* ============================================================
+   3. HERO — brandmark (fedora silhouette) + flight trajectory,
+      static (no animation), compact height
+   ============================================================ */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 52px 20px 56px;
+  overflow: hidden;
+}
+
+/* ambient trajectory lines behind hero content — decorative only */
+.hero .bg-arcs {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
+
+/* Fedora brandmark, drawn inline per brand guide (white on charcoal,
+   crimson disc accent) */
+.brandmark {
+  width: clamp(64px, 12vw, 88px);
+  height: auto;
+  display: block;
+  margin: 0 auto 14px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--km-silver);
+  margin-bottom: 10px;
+}
+
+h1.brand {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: clamp(36px, 8vw, 60px);
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--km-white);
+}
+h1.brand .red { color: var(--km-crimson); text-shadow: 2px 2px 0 rgba(255,255,255,0.12); }
+h1.brand .tag {
+  font-size: 0.32em;
+  vertical-align: super;
+  color: var(--km-silver);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.brand-sub {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: clamp(12px, 2.2vw, 16px);
+  color: var(--km-white);
+  margin-top: 6px;
+  text-shadow: 1px 1px 0 var(--km-crimson);
+}
+
+.hero-tagline {
+  margin-top: 16px;
+  font-size: clamp(15px, 2.5vw, 17px);
+  color: var(--km-white);
+  max-width: 580px;
+  margin-left: auto; margin-right: auto;
+  line-height: 1.6;
+}
+
+.motto {
+  margin-top: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: clamp(12px, 2vw, 15px);
+  color: var(--km-crimson-hi);
+}
+
+.hero-actions { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.cta {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  min-height: 50px;
+  background: var(--km-crimson);
+  color: var(--km-white);
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+.cta:hover  { background: var(--km-crimson-hi); transform: scale(1.02); box-shadow: 0 6px 22px rgba(115,0,15,0.55); }
+.cta:active { transform: scale(0.98); }
+.cta.ghost {
+  background: transparent;
+  border-color: var(--km-line);
+  color: var(--km-white);
+}
+.cta.ghost:hover { border-color: var(--km-crimson-hi); background: rgba(115,0,15,0.25); box-shadow: none; }
+
+/* Social icons row */
+.socials {
+  margin-top: 26px;
+  display: flex; gap: 12px; justify-content: center;
+}
+.socials a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--km-line);
+  background: var(--km-charcoal);
+  transition: border-color .2s ease, background .2s ease, transform .15s ease;
+}
+.socials a:hover { border-color: var(--km-crimson-hi); background: rgba(115,0,15,0.35); transform: scale(1.06); }
+.socials svg { width: 20px; height: 20px; fill: var(--km-silver); }
+.socials a:hover svg { fill: var(--km-white); }
+
+/* ============================================================
+   4. SECTIONS
+   ============================================================ */
+section.block {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 52px 20px 20px;
+  scroll-margin-top: 70px;
+}
+
+.section-head { margin-bottom: 20px; }
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--km-crimson-hi);
+}
+h2.section-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(26px, 5vw, 36px);
+  color: var(--km-white);
+  line-height: 1.1;
+}
+.section-sub {
+  color: var(--km-silver);
+  font-size: 14.5px;
+  margin-top: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--km-line);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+.card {
+  background: var(--km-charcoal);
+  border: 1px solid var(--km-line);
+  border-radius: 6px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+}
+.card h3 {
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--km-crimson-hi);
+  margin-bottom: 8px;
+}
+.card p, .card li { font-size: 14.5px; line-height: 1.7; color: #e8e8e8; }
+.card ul { padding-left: 18px; margin-top: 6px; }
+.card li { margin-bottom: 6px; }
+.card strong { color: var(--km-white); }
+.callout {
+  margin-top: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--km-crimson-hi);
+  font-size: 15px;
+}
+
+.duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) { .duo-grid { grid-template-columns: 1fr; } }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.value-card {
+  background: var(--km-charcoal);
+  border: 1px solid var(--km-line);
+  border-left: 3px solid var(--km-crimson);
+  border-radius: 4px;
+  padding: 16px 18px;
+}
+.value-card h4 {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: var(--km-white);
+  margin-bottom: 5px;
+}
+.value-card p { font-size: 13.5px; color: var(--km-silver); line-height: 1.6; }
+
+/* ---------- TRAINING SCHEDULE ---------- */
+.schedule-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(115,0,15,0.35), var(--km-charcoal));
+  border: 1px solid rgba(156,18,32,0.6);
+  border-radius: 8px;
+  padding: 24px;
+}
+@media (max-width: 560px) { .schedule-card { grid-template-columns: 1fr; text-align: center; } }
+
+.schedule-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--km-crimson);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+.schedule-icon svg { width: 36px; height: 36px; stroke: var(--km-white); fill: none; stroke-width: 2; }
+
+.sched-line-1 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--km-crimson-hi); }
+.sched-line-2 { font-weight: 800; font-size: clamp(22px, 4vw, 30px); text-transform: uppercase; color: var(--km-white); }
+.sched-line-3 { font-size: 15px; color: #e8e8e8; margin-top: 2px; }
+.sched-line-4 { font-family: var(--font-mono); font-size: 12.5px; color: var(--km-silver); margin-top: 4px; }
+
+.landmarks ul { list-style: none; padding: 0; }
+.landmarks li {
+  padding: 10px 0 10px 26px;
+  border-bottom: 1px dashed var(--km-line);
+  position: relative;
+  font-size: 14px;
+  color: #e8e8e8;
+}
+.landmarks li:last-child { border-bottom: none; }
+.landmarks li::before { content: '📍'; position: absolute; left: 0; filter: grayscale(0.3); }
+
+.note-strip {
+  margin-top: 14px;
+  border: 1px dashed rgba(156,18,32,0.6);
+  background: rgba(115,0,15,0.12);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--km-silver);
+  line-height: 1.6;
+}
+
+/* ---------- PEOPLE ---------- */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+.person {
+  background: var(--km-charcoal);
+  border: 1px solid var(--km-line);
+  border-radius: 6px;
+  padding: 18px 12px;
+  text-align: center;
+  transition: border-color .2s ease, transform .15s ease;
+}
+.person:hover { border-color: var(--km-crimson-hi); transform: translateY(-3px); }
+.avatar {
+  width: 84px; height: 84px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background:
+    repeating-linear-gradient(45deg, rgba(115,0,15,0.3), rgba(115,0,15,0.3) 8px, rgba(23,29,29,0.6) 8px, rgba(23,29,29,0.6) 16px),
+    var(--km-charcoal-deep);
+  border: 2px solid var(--km-crimson);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.avatar svg { width: 46px; height: 46px; fill: var(--km-silver); opacity: 0.85; }
+.person .p-name {
+  font-weight: 800;
+  font-size: 13.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--km-white);
+  line-height: 1.25;
+}
+.person .p-role {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--km-silver);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.committee-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--km-crimson-hi);
+  margin: 26px 0 14px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 56px;
+  border-top: 1px solid var(--km-line);
+  text-align: center;
+  padding: 30px 20px 40px;
+}
+footer .f-logo {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: var(--km-white);
+}
+footer .f-logo .red { color: var(--km-crimson-hi); }
+footer p {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--km-silver);
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+  line-height: 1.8;
+}
+footer nav { margin-top: 14px; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+footer nav a {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--km-silver);
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 4px;
+  transition: color .2s ease, background .2s ease;
+}
+footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="logo" href="#top">KM<span class="red">·</span>ULTIMATE<sup class="tag">'15</sup></a>
+  <div class="nav-links">
+    <a href="#welcome">Welcome</a>
+    <a href="#about">About</a>
+    <a href="#training">Training</a>
+    <a href="#people">People</a>
+    <a href="./beginners-playbook/index.html">Beginner's Playbook</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <!-- Ambient flight trajectory lines (static, decorative) -->
+  <svg class="bg-arcs" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M -50 360 Q 600 -140 1260 260" stroke="#73000F" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M -50 400 Q 620 -80 1260 300" stroke="#A7A7A7" stroke-width="1" fill="none" opacity="0.18" stroke-dasharray="8 10"/>
+    <path d="M -50 320 Q 580 -190 1260 210" stroke="#73000F" stroke-width="1" fill="none" opacity="0.35"/>
+    <!-- small static disc resting at the end of an arc -->
+    <ellipse cx="960" cy="120" rx="44" ry="13" fill="#202828" stroke="#A7A7A7" stroke-width="1.5"/>
+    <ellipse cx="960" cy="116" rx="27" ry="7" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.35"/>
+    <path d="M 900 128 Q 884 132 870 129" stroke="#73000F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <div class="hero-inner">
+    <!-- Inline SVG Brandmark: fedora silhouette per brand guide -->
+    <svg class="brandmark" viewBox="0 0 100 84" role="img" aria-label="Kid Mafia Ultimate brandmark — figure wearing a fedora">
+      <!-- fedora crown -->
+      <path d="M 30 34 Q 32 10 50 8 Q 68 10 70 34 L 70 40 L 30 40 Z" fill="#FFFFFF"/>
+      <!-- fedora band -->
+      <rect x="30" y="34" width="40" height="7" fill="#73000F"/>
+      <!-- brim -->
+      <path d="M 18 47 Q 24 41 50 41 Q 76 41 82 47 Q 78 53 50 53 Q 22 53 18 47 Z" fill="#FFFFFF"/>
+      <!-- shoulders / collar hint -->
+      <path d="M 30 62 Q 50 54 70 62 L 74 80 L 26 80 Z" fill="#FFFFFF"/>
+      <!-- crimson flying disc accent beside the mark -->
+      <ellipse cx="90" cy="72" rx="8" ry="3" fill="#73000F"/>
+    </svg>
+
+    <div class="eyebrow">Laguna · Philippines</div>
+    <h1 class="brand"><span class="tag">'15</span><br>KM<span class="red">&nbsp;</span>ULTIMATE</h1>
+    <div class="brand-sub">Kid Mafia</div>
+    <p class="hero-tagline">More than a frisbee team — a community dedicated to developing Ultimate Frisbee players across Laguna.</p>
+    <div class="motto">Honing Skills · Building Community · Playing with Heart</div>
+    <div class="hero-actions">
+      <a class="cta" href="#training">Train With Us</a>
+      <a class="cta ghost" href="./beginners-playbook/index.html">New to Frisbee? Start Here →</a>
+    </div>
+
+    <!-- Official social platforms -->
+    <div class="socials" aria-label="Social media links">
+      <a href="https://www.facebook.com/KM.Ultimate" target="_blank" rel="noopener" aria-label="Facebook — KM.Ultimate" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.87.24-1.46 1.49-1.46h1.6V4.45c-.28-.04-1.23-.12-2.34-.12-2.31 0-3.9 1.41-3.9 4v2.17H7.75v3h2.6V21h3.15z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/km_ultimate" target="_blank" rel="noopener" aria-label="Instagram — @km_ultimate" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 4.3c2.5 0 2.8 0 3.8.06 2.53.11 3.71 1.31 3.83 3.83.05 1 .06 1.28.06 3.81s0 2.81-.06 3.81c-.12 2.52-1.3 3.72-3.83 3.83-1 .05-1.28.06-3.8.06s-2.81 0-3.81-.06c-2.53-.11-3.71-1.32-3.83-3.83-.05-1-.06-1.28-.06-3.81s0-2.81.06-3.81C4.48 5.67 5.66 4.47 8.19 4.36c1-.05 1.3-.06 3.81-.06zM12 2.5c-2.57 0-2.89.01-3.9.06-3.4.16-5.3 2.05-5.46 5.46-.05 1.01-.06 1.33-.06 3.98s.01 2.97.06 3.98c.16 3.4 2.05 5.3 5.46 5.46 1.01.05 1.33.06 3.9.06s2.89-.01 3.9-.06c3.4-.16 5.3-2.06 5.45-5.46.05-1.01.07-1.33.07-3.98s-.02-2.97-.07-3.98c-.15-3.4-2.05-5.3-5.45-5.46-1.01-.05-1.33-.06-3.9-.06zm0 4.63a4.87 4.87 0 1 0 0 9.74 4.87 4.87 0 0 0 0-9.74zm0 8.03a3.16 3.16 0 1 1 0-6.32 3.16 3.16 0 0 1 0 6.32zm5.07-9.37a1.14 1.14 0 1 0 0 2.27 1.14 1.14 0 0 0 0-2.27z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ================= 1. WELCOME ================= -->
+  <section class="block" id="welcome" aria-labelledby="welcome-title">
+    <div class="section-head">
+      <span class="section-num">01 / Welcome to the Family</span>
+      <h2 class="section-title" id="welcome-title">Welcome to Kid Mafia</h2>
+      <p class="section-sub">Whether you're holding a disc for the first time or chasing an elite level of play — you belong here.</p>
+    </div>
+    <div class="card">
+      <p>Kid Mafia is more than a frisbee team — we are a community dedicated to developing Ultimate Frisbee players across Laguna. Whether you are just picking up a disc for the first time or looking to sharpen elite skills, this organization exists to support your growth <strong>on and off the field</strong>.</p>
+    </div>
+    <div class="card">
+      <h3>Everything you need is here</h3>
+      <p>This site is home base: our mission and values, our training schedule and venue, and the people who lead the family — plus a full beginner's playbook for anyone picking up a disc for the first time. Explore each section and reach out through our socials anytime.</p>
+      <div class="callout">Play hard. Play fair. Lift others up.</div>
+    </div>
+  </section>
+
+  <!-- ================= 2. ABOUT ================= -->
+  <section class="block" id="about" aria-labelledby="about-title">
+    <div class="section-head">
+      <span class="section-num">02 / Who We Are</span>
+      <h2 class="section-title" id="about-title">About Kid Mafia</h2>
+      <p class="section-sub">Built in Laguna, open to everyone. Here's what drives us.</p>
+    </div>
+
+    <div class="duo-grid">
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>To provide accessible, high-quality training, mentorship, and competitive opportunities for Ultimate Frisbee players living in Laguna — helping them develop technical skill, tactical knowledge, physical fitness, and strong character.</p>
+      </div>
+      <div class="card">
+        <h3>Our Vision</h3>
+        <p>A thriving Ultimate community in Laguna where every player — regardless of experience level — has the support, coaching, and pathway needed to reach their full potential.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Our Goals</h3>
+      <ul>
+        <li>Develop skilled, knowledgeable, and spirited Ultimate players in Laguna.</li>
+        <li>Offer regular, high-quality training open to members of all levels.</li>
+        <li>Cater clinics and outreach programs to schools and universities across Laguna, introducing and growing the sport at the institutional level.</li>
+        <li>Build a supportive network where experienced players mentor and uplift newer athletes.</li>
+        <li>Foster a positive reputation for Kid Mafia and for Ultimate Frisbee throughout the province.</li>
+      </ul>
+    </div>
+
+    <h3 style="font-weight:800;color:var(--km-white);text-transform:uppercase;font-size:18px;margin:26px 0 14px;">Our Values</h3>
+    <div class="values-grid">
+      <div class="value-card"><h4>Family First</h4><p>We treat every member with respect and support. No one is left behind.</p></div>
+      <div class="value-card"><h4>Spirit of the Game</h4><p>We compete fiercely while upholding integrity, honesty, and sportsmanship.</p></div>
+      <div class="value-card"><h4>Growth Mindset</h4><p>Every practice and every game is an opportunity to improve.</p></div>
+      <div class="value-card"><h4>Community Impact</h4><p>We actively help other players in Laguna raise their level of play.</p></div>
+      <div class="value-card"><h4>Accountability</h4><p>We show up on time, prepared, and ready to contribute.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= 3. TRAINING ================= -->
+  <section class="block" id="training" aria-labelledby="training-title">
+    <div class="section-head">
+      <span class="section-num">03 / Training Schedule &amp; Venue</span>
+      <h2 class="section-title" id="training-title">See You on the Field</h2>
+      <p class="section-sub">Consistent training is the foundation of our development. All members are expected to know and follow the regular schedule.</p>
+    </div>
+
+    <div class="schedule-card">
+      <div class="schedule-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      </div>
+      <div>
+        <div class="sched-line-1">Regular Training</div>
+        <div class="sched-line-2">Every Tuesday Night</div>
+        <div class="sched-line-3">7:00 PM onwards</div>
+        <div class="sched-line-4">Carmeltown Football Field · Calamba, Laguna</div>
+      </div>
+    </div>
+
+    <div class="card landmarks">
+      <h3>How to Find Us — Nearby Landmarks</h3>
+      <ul>
+        <li><strong>Nuvali</strong> — major mixed-use development and commercial area nearby</li>
+        <li><strong>Solenad</strong> — popular shopping and dining destination in Nuvali</li>
+        <li><strong>San Sebastian College – Recoletos de Canlubang</strong> — educational institution in the Canlubang area</li>
+      </ul>
+    </div>
+
+    <div class="note-strip">
+      ⏱️ Please arrive <strong style="color:#e8e8e8">10–15 minutes early</strong>. Confirm any schedule changes via the official team chat. Occasional additional sessions or clinic days may be announced separately.
+    </div>
+  </section>
+
+  <!-- ================= 4. PEOPLE ================= -->
+  <section class="block" id="people" aria-labelledby="people-title">
+    <div class="section-head">
+      <span class="section-num">04 / The People Behind the Mafia</span>
+      <h2 class="section-title" id="people-title">Leadership &amp; Coaching Staff</h2>
+      <p class="section-sub">The board and committee heads who keep the family running — on and off the field.</p>
+    </div>
+
+    <div class="committee-sub">Board of Directors</div>
+    <!-- Order per leadership: Jarred, Arthur, Joaquin, Don, Jari, John Depp.
+         Each avatar is a placeholder — swap the inner <svg> for <img src="photos/name.jpg" alt=""> when photos arrive. -->
+    <div class="people-grid">
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jarred Leysa</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Arthur Baral</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Joaquin Del Rosario</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Don Baylon</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jari Villanueva</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">John Depp Adorna</div></div>
+    </div>
+
+    <div class="committee-sub">Training Committee</div>
+    <!-- Order: Jarred, Arthur, Yno, Jari, Joaquin, Stella, Katzen, Aaliyah -->
+    <div class="people-grid">
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jarred Leysa</div><div class="p-role">Training Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Arthur Baral</div><div class="p-role">Offense Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Yno Villanueva</div><div class="p-role">Defense Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jari Villanueva</div><div class="p-role">S&amp;C Head</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Joaquin Del Rosario</div><div class="p-role">Begs Group Head<br>Equipment Manager</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Stella Escasa</div><div class="p-role">Womens Group Head<br>Equipment Manager</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Katzen Oliva</div><div class="p-role">Begs Offense Coach</div></div>
+      <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Aaliyah Gutierrez</div><div class="p-role">Begs Defense Coach</div></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="f-logo">KM<span class="red">·</span>ULTIMATE<sup style="font-size:10px;color:var(--km-silver);">'15</sup></div>
+  <p>KID MAFIA ULTIMATE — HONING SKILLS · BUILDING COMMUNITY · PLAYING WITH HEART<br>CALAMBA, LAGUNA</p>
+  <nav aria-label="Footer navigation">
+    <a href="#welcome">Welcome</a>
+    <a href="#about">About</a>
+    <a href="#training">Training</a>
+    <a href="#people">People</a>
+    <a href="./beginners-playbook/index.html">Beginner's Playbook</a>
+    <a href="https://www.facebook.com/KM.Ultimate" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/km_ultimate" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+</footer>
+
+</body>
+</html>
