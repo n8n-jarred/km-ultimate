@@ -71,21 +71,15 @@ a { color: inherit; }
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--km-line);
 }
-.site-nav .logo {
-  font-family: var(--font-main);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 18px;
-  color: var(--km-crimson);
+.site-nav .logo-link {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  line-height: 1;
 }
-.site-nav .logo .tag {
-  font-size: 10px;
-  vertical-align: super;
-  color: var(--km-silver);
-  font-weight: 700;
+.site-nav .nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -195,16 +189,23 @@ h1.brand .tag {
   border: 1px solid var(--km-crimson);
   cursor: pointer;
   text-decoration: none;
-  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .cta:hover  { background: var(--km-crimson-hi); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(115,0,15,0.25); }
 .cta:active { transform: translateY(0); }
+
+/* Updated Ghost Button Border for visibility */
 .cta.ghost {
   background: transparent;
-  border-color: var(--km-line);
+  border: 2px solid var(--km-charcoal);
   color: var(--km-charcoal);
 }
-.cta.ghost:hover { border-color: var(--km-crimson); background: rgba(115,0,15,0.04); color: var(--km-crimson); box-shadow: none; }
+.cta.ghost:hover { 
+  border-color: var(--km-crimson); 
+  background: rgba(115,0,15,0.04); 
+  color: var(--km-crimson); 
+  box-shadow: none; 
+}
 
 .socials {
   margin-top: 28px;
@@ -421,18 +422,22 @@ footer {
   text-align: center;
   padding: 36px 20px 44px;
 }
-footer .f-logo {
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 20px;
-  color: var(--km-crimson);
+footer .footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+footer .footer-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 footer p {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--km-silver);
   letter-spacing: 0.05em;
-  margin-top: 8px;
+  margin-top: 12px;
   line-height: 1.8;
   font-weight: 600;
 }
@@ -456,7 +461,9 @@ footer nav a:hover { color: var(--km-crimson); background: rgba(115,0,15,0.06); 
 
 <!-- ================= NAV ================= -->
 <nav class="site-nav" aria-label="Main navigation">
-  <a class="logo" href="#top">KM<span style="color:var(--km-charcoal)">·</span>ULTIMATE<sup class="tag">'15</sup></a>
+  <a class="logo-link" href="#top">
+    <img src="https://lh3.googleusercontent.com/d/1ZPJEfmB3UyD8XjSz724zJsiNR_7iVoOC" alt="Kid Mafia Ultimate Logo" class="nav-logo-img">
+  </a>
   <div class="nav-links">
     <a href="#welcome">Welcome</a>
     <a href="#about">About</a>
@@ -471,7 +478,6 @@ footer nav a:hover { color: var(--km-crimson); background: rgba(115,0,15,0.06); 
 <!-- ================= HERO ================= -->
 <header class="hero" id="top">
   <div class="hero-inner">
-    <!-- Updated Brandmark Link to Google Drive Direct Stream -->
     <img src="https://lh3.googleusercontent.com/d/1LtDsKa0PgsUYvYwc_1ycgMXwBoZzD5uA" alt="Kid Mafia Ultimate Brandmark" class="brandmark-img">
 
     <div class="eyebrow">Laguna · Philippines</div>
@@ -622,7 +628,9 @@ footer nav a:hover { color: var(--km-crimson); background: rgba(115,0,15,0.06); 
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <div class="f-logo">KM<span style="color:var(--km-charcoal)">·</span>ULTIMATE<sup style="font-size:10px;color:var(--km-silver);">'15</sup></div>
+  <a class="footer-logo-link" href="#top">
+    <img src="https://lh3.googleusercontent.com/d/1ZPJEfmB3UyD8XjSz724zJsiNR_7iVoOC" alt="Kid Mafia Ultimate Logo" class="footer-logo-img">
+  </a>
   <p>HONING SKILLS · BUILDING COMMUNITY · PLAYING WITH HEART</p>
   <nav aria-label="Footer navigation">
     <a href="#welcome">Welcome</a>
