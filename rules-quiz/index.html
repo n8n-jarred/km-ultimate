@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     KM ULTIMATE — RULES POP QUIZ
+     Questions sourced directly from the official
+     WFDF Rules of Ultimate 2025-2028 (effective 2025-01-01).
+     Brand Theme: Light Mode Matching Main Page
+     ============================================================ -->
+
+<title>Rules Pop Quiz · KM Ultimate</title>
+<meta name="description" content="Test your knowledge of the official WFDF Rules of Ultimate (2025-2028) with a fun pop quiz from Kid Mafia Ultimate. Choose 10, 20, or 50 questions — instant answers with rule references.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="./index.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+/* ================= BRAND TOKENS (LIGHT THEME) ================= */
+:root {
+  --km-crimson: #73000F;
+  --km-crimson-hi: #9c1220;
+  --km-charcoal: #202828;
+  --km-silver: #666666;
+  --km-white: #FFFFFF;
+  --km-card-bg: #F8F9FA;
+  --km-line: rgba(32, 40, 40, 0.12);
+  --km-green: #2e7d32;
+  --font-main: 'Work Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+html, body {
+  background: var(--km-white);
+  color: var(--km-charcoal);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--km-crimson); outline-offset: 3px; }
+
+/* ================= NAV ================= */
+.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--km-line);
+}
+.site-nav .logo-link {
+  display: flex; align-items: center; text-decoration: none;
+}
+.site-nav .logo-img {
+  height: 38px; width: auto; object-fit: contain;
+}
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+.nav-links a {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em;
+  text-transform: uppercase; text-decoration: none; color: var(--km-charcoal);
+  padding: 10px 12px; border-radius: 4px; transition: color .2s, background .2s;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--km-crimson); background: rgba(115,0,15,0.06); }
+@media (max-width: 680px) { 
+  .nav-links a { padding: 8px 6px; font-size: 9px; }
+  .site-nav .logo-img { height: 30px; }
+}
+
+/* ================= HERO ================= */
+.hero { position: relative; text-align: center; padding: 46px 20px 36px; overflow: hidden; background: #FAF9F8; border-bottom: 1px solid var(--km-line); }
+.hero .bg-arcs { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .4; }
+.hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+
+.brandmark { height: clamp(70px, 12vw, 96px); width: auto; display: block; margin: 0 auto 16px; object-fit: contain; }
+
+.eyebrow {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--km-silver); margin-bottom: 10px; font-weight: 500;
+}
+h1 {
+  font-weight: 800; font-size: clamp(30px, 7vw, 52px);
+  line-height: 1.05; text-transform: uppercase; color: var(--km-charcoal);
+}
+h1 .red { color: var(--km-crimson); }
+.quiz-tagline { margin-top: 12px; font-size: clamp(14px, 2.4vw, 17px); color: #4a5252; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+/* ================= SETUP SCREEN ================= */
+.setup-wrap { max-width: 760px; margin: 0 auto; padding: 30px 20px 70px; }
+
+.choice-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 20px; }
+.choice-card {
+  background: var(--km-card-bg);
+  border: 1px solid var(--km-line);
+  border-radius: 14px;
+  padding: 28px 18px 24px;
+  text-align: center;
+  cursor: pointer;
+  min-height: 48px;
+  transition: transform .18s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.choice-card:hover { transform: translateY(-4px); border-color: var(--km-crimson); box-shadow: 0 10px 24px rgba(115,0,15,0.08); }
+.choice-card .big-num {
+  font-weight: 800; font-size: 52px; line-height: 1;
+  color: var(--km-crimson);
+}
+.choice-card .big-num span { font-size: 18px; vertical-align: super; color: var(--km-silver); }
+.choice-card .c-label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--km-silver); margin-top: 10px; font-weight: 500;
+}
+
+.setup-note {
+  margin-top: 28px; text-align: center;
+  font-family: var(--font-mono); font-size: 11.5px; color: var(--km-silver); line-height: 1.8;
+}
+.setup-note a { color: var(--km-crimson); text-decoration: none; border-bottom: 1px dotted var(--km-crimson); font-weight: 500; }
+
+/* ================= QUIZ SCREEN ================= */
+.quiz-wrap { max-width: 720px; margin: 0 auto; padding: 24px 20px 70px; display: none; }
+.quiz-wrap.show { display: block; }
+
+.progress-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.progress-bar { flex: 1; height: 10px; background: #EAEAEA; border-radius: 6px; overflow: hidden; border: 1px solid var(--km-line); }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--km-crimson), var(--km-crimson-hi)); border-radius: 6px; transition: width .35s ease; }
+.progress-text { font-family: var(--font-mono); font-size: 11.5px; color: var(--km-silver); white-space: nowrap; font-weight: 500; }
+
+.q-card {
+  background: var(--km-card-bg);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  animation: popIn .3s ease;
+}
+@keyframes popIn { from { opacity: 0; transform: scale(.98) translateY(8px);} to { opacity: 1; transform: none;} }
+@media (prefers-reduced-motion: reduce) { .q-card { animation: none; } }
+
+.q-meta {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--km-crimson); font-weight: 500;
+  border: 1px solid rgba(115,0,15,0.3); border-radius: 20px; padding: 3px 10px;
+  background: rgba(115,0,15,0.04);
+  margin-bottom: 14px;
+}
+.q-text { font-weight: 700; font-size: clamp(17px, 3vw, 21px); line-height: 1.4; margin-bottom: 20px; color: var(--km-charcoal); }
+
+.answers { display: grid; gap: 10px; }
+.answer-btn {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; text-align: left;
+  background: var(--km-white);
+  border: 1px solid var(--km-line);
+  color: var(--km-charcoal);
+  font-family: var(--font-main); font-size: 15px; line-height: 1.45;
+  padding: 14px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 48px;
+  transition: border-color .18s ease, background .18s ease, transform .12s ease;
+}
+.answer-btn:hover:not(:disabled) { border-color: var(--km-crimson); background: rgba(115,0,15,0.03); transform: translateX(3px); }
+.answer-btn .letter {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #EAEAEA; color: var(--km-charcoal);
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+}
+.answer-btn.correct   { border-color: var(--km-green); background: rgba(46,125,50,0.08); }
+.answer-btn.correct .letter { background: var(--km-green); color: var(--km-white); }
+.answer-btn.wrong     { border-color: var(--km-crimson); background: rgba(115,0,15,0.08); }
+.answer-btn.wrong .letter   { background: var(--km-crimson); color: var(--km-white); }
+.answer-btn:disabled { cursor: default; opacity: .95; }
+
+.explain {
+  display: none;
+  margin-top: 18px;
+  border-left: 4px solid var(--km-crimson);
+  background: rgba(115,0,15,0.04);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  font-size: 14px; line-height: 1.6; color: #333333;
+}
+.explain.show { display: block; }
+.explain strong { color: var(--km-charcoal); }
+.explain .ref {
+  display: block; margin-top: 8px;
+  font-family: var(--font-mono); font-size: 11px; color: var(--km-silver); font-weight: 500;
+}
+
+.next-row { display: flex; justify-content: flex-end; margin-top: 20px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 12px 24px;
+  font-weight: 800; font-size: 13px; letter-spacing: .05em; text-transform: uppercase;
+  border-radius: 6px; border: 1px solid transparent;
+  background: var(--km-crimson); color: var(--km-white);
+  cursor: pointer; text-decoration: none;
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+.btn:hover { background: var(--km-crimson-hi); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(115,0,15,0.3); }
+.btn:active { transform: scale(.98); }
+.btn.ghost { background: transparent; border-color: var(--km-line); color: var(--km-charcoal); }
+.btn.ghost:hover { background: rgba(32,40,40,0.04); box-shadow: none; border-color: var(--km-charcoal); }
+
+/* ================= RESULT SCREEN ================= */
+.result-wrap { max-width: 640px; margin: 0 auto; padding: 24px 20px 70px; display: none; text-align: center; }
+.result-wrap.show { display: block; animation: popIn .35s ease; }
+
+.trophy { font-size: 64px; margin-bottom: 6px; }
+.score-big { font-weight: 800; font-size: clamp(48px, 9vw, 76px); line-height: 1; color: var(--km-charcoal); }
+.score-big .denom { font-size: .45em; color: var(--km-silver); }
+.result-verdict {
+  font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
+  font-size: clamp(16px, 3vw, 22px); color: var(--km-crimson); margin-top: 12px;
+}
+.result-msg { color: #4a5252; font-size: 15px; line-height: 1.65; margin: 14px auto 24px; max-width: 460px; }
+.result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* review list */
+.review-list { text-align: left; margin-top: 36px; }
+.review-list h3 { font-weight: 800; text-transform: uppercase; font-size: 15px; letter-spacing: .04em; margin-bottom: 14px; color: var(--km-charcoal); }
+.review-item {
+  background: var(--km-card-bg); border: 1px solid var(--km-line);
+  border-left: 4px solid var(--km-green);
+  border-radius: 6px; padding: 14px 16px; margin-bottom: 12px;
+  font-size: 13.5px; line-height: 1.55; color: #333333;
+}
+.review-item.missed { border-left-color: var(--km-crimson); }
+.review-item .rv-q { font-weight: 700; color: var(--km-charcoal); margin-bottom: 4px; }
+.review-item .rv-a { margin-top: 4px; }
+.review-item.missed .rv-a b { color: var(--km-crimson); }
+
+footer {
+  border-top: 1px solid var(--km-line);
+  text-align: center; padding: 32px 20px 42px; margin-top: 30px;
+  background: #FAF9F8;
+}
+footer .footer-logo { height: 32px; width: auto; object-fit: contain; margin-bottom: 12px; }
+footer p { font-family: var(--font-mono); font-size: 10.5px; color: var(--km-silver); letter-spacing: .05em; line-height: 1.8; }
+footer a { color: var(--km-crimson); text-decoration: none; font-weight: 500; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="logo-link" href="../index.html" aria-label="KM Ultimate Home">
+    <img class="logo-img" src="https://drive.google.com/thumbnail?id=1vShBjr7NcuIGbqUpYWwLCUPUHHOiuNrv&sz=w500" alt="KM Ultimate Logo">
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../beginners-playbook/index.html">Playbook</a>
+    <a href="./index.html">Pop Quiz</a>
+    <a href="../training-program/index.html">Training</a>
+    <a href="../#training">Schedule</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <!-- ambient trajectory lines -->
+  <svg class="bg-arcs" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M -50 320 Q 600 -120 1260 220" stroke="#73000F" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <path d="M -50 360 Q 620 -60 1260 260" stroke="#666666" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="8 10"/>
+    <ellipse cx="980" cy="110" rx="42" ry="12" fill="#F8F9FA" stroke="#666666" stroke-width="1.5"/>
+    <ellipse cx="980" cy="106" rx="26" ry="7" fill="none" stroke="#202828" stroke-width="1" opacity="0.25"/>
+    <path d="M 922 120 Q 906 124 892 121" stroke="#73000F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <div class="hero-inner">
+    <!-- Main page hero logo -->
+    <img class="brandmark" src="https://drive.google.com/thumbnail?id=179HgHV6qchPWPpVGmLR5ufXyi9IptbXz&sz=w500" alt="Kid Mafia Ultimate Brandmark">
+
+    <div class="eyebrow">WFDF Rules of Ultimate · 2025–2028</div>
+    <h1>Rules Pop <span class="red">Quiz</span></h1>
+    <p class="quiz-tagline">Think you know the rules? 🥏 Every question comes straight from the official WFDF Rules of Ultimate 2025–2028 — with the exact rule cited after each answer.</p>
+  </div>
+</header>
+
+<!-- ================= SETUP: pick your challenge ================= -->
+<div class="setup-wrap" id="setupScreen">
+  <div class="choice-cards">
+    <button class="choice-card" data-count="10">
+      <div class="big-num">10</div>
+      <div class="c-label">Quick Warm-Up<br>~3 minutes</div>
+    </button>
+    <button class="choice-card" data-count="20">
+      <div class="big-num">20</div>
+      <div class="c-label">Solid Scrimmage<br>~6 minutes</div>
+    </button>
+    <button class="choice-card" data-count="50">
+      <div class="big-num"><span>ALL</span>50</div>
+      <div class="c-label">Full Tournament<br>~15 minutes</div>
+    </button>
+  </div>
+  <p class="setup-note">
+    Questions are drawn at random each round — replay for a fresh set.<br>
+    Want to read first? 📖 <a href="https://urules.org/" target="_blank" rel="noopener">Official WFDF Rules of Ultimate</a> · <a href="../beginners-playbook/index.html">Beginner's Playbook</a>
+  </p>
+</div>
+
+<!-- ================= QUIZ ================= -->
+<div class="quiz-wrap" id="quizScreen">
+  <div class="progress-row">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-text" id="progressText"></span>
+  </div>
+  <div class="q-card">
+    <span class="q-meta" id="qMeta"></span>
+    <p class="q-text" id="qText"></p>
+    <div class="answers" id="answers"></div>
+    <div class="explain" id="explain"></div>
+    <div class="next-row">
+      <button class="btn" id="nextBtn" style="display:none;">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RESULTS ================= -->
+<div class="result-wrap" id="resultScreen">
+  <div class="trophy" id="trophyEmoji">🏆</div>
+  <div class="score-big"><span id="scoreNum">0</span><span class="denom" id="scoreDenom">/10</span></div>
+  <div class="result-verdict" id="verdict"></div>
+  <p class="result-msg" id="resultMsg"></p>
+  <div class="result-actions">
+    <button class="btn" id="againBtn">Play Again ↻</button>
+    <a class="btn ghost" href="../beginners-playbook/index.html">Review Playbook</a>
+    <a class="btn ghost" href="https://urules.org/" target="_blank" rel="noopener">Read WFDF Rules</a>
+  </div>
+  <div class="review-list" id="reviewList"></div>
+</div>
+
+<footer>
+  <img class="footer-logo" src="https://drive.google.com/thumbnail?id=1vShBjr7NcuIGbqUpYWwLCUPUHHOiuNrv&sz=w500" alt="KM Ultimate Logo">
+  <p>KM ULTIMATE<br>
+  All questions reference the <a href="https://urules.org/" target="_blank" rel="noopener">WFDF Rules of Ultimate 2025–2028</a>.</p>
+</footer>
+
+<script>
+/* ============================================================
+   QUESTION BANK — every answer verified verbatim against the
+   official WFDF Rules of Ultimate 2025–2028.
+   ============================================================ */
+const BANK = [
+  { cat:"Game Basics", q:"How many players per team may be on the field during a point?",
+    a:["Maximum of seven (7)","Maximum of five (5)","Exactly ten (10)","Unlimited"],
+    c:0, ex:"Each team will put a maximum of seven (7) players and a minimum of five (5) players on the field during each point.", ref:"Rule 5.1" },
+  { cat:"Game Basics", q:"A game is finished and won by the first team to score how many goals?",
+    a:["Fifteen (15)","Ten (10)","Twenty-one (21)","Twelve (12)"],
+    c:0, ex:"A game is finished and won by the first team to score fifteen (15) goals.", ref:"Rule 4.2" },
+  { cat:"Game Basics", q:"Half time occurs when a team first scores how many goals?",
+    a:["Eight (8)","Seven (7)","Ten (10)","Half of the winning score"],
+    c:0, ex:"A game is separated into two (2) periods called halves. Half time occurs when a team first scores eight (8) goals.", ref:"Rule 4.3" },
+  { cat:"Game Basics", q:"After a goal is scored (with no win or half-time yet), which team pulls next?",
+    a:["The team that scored","The team that was scored on","Alternating regardless of score","Decided by a spinner"],
+    c:0, ex:"After a goal: teams switch defending end zones, and the team that scored becomes defence and pulls next.", ref:"Rule 4.5.3" },
+  { cat:"Game Basics", q:"For Mixed games, what personnel ratio should be used?",
+    a:["An alternating 4:3 ratio","Always 5:2","Always 4:3, never alternated","No ratio required"],
+    c:0, ex:"For Mixed games, a form of an alternating 4:3 personnel ratio should be used.", ref:"Rule 5.4" },
+
+  { cat:"The Pull", q:"At the start of the game, after half-time or after a score, play commences with a throw by the defence called…",
+    a:["The pull","The brick","The check","The launch"],
+    c:0, ex:"At the start of the game, after half-time or after a score, play commences with a throw by the defence, called a “pull”.", ref:"Rule 7.5" },
+  { cat:"The Pull", q:"Before the pull can be made, readiness is signalled by…",
+    a:["Both teams raising a hand above their head","The captain shouting “ready”","Blowing a whistle","Tapping the disc twice"],
+    c:0, ex:"The pull may be made only after both teams have signalled their readiness by having the puller and a player on offence raise a hand above their head.", ref:"Rule 7.5.1" },
+  { cat:"The Pull", q:"If the pull lands out-of-bounds without touching the field or an offensive player, the thrower may take the brick option. How is it signalled?",
+    a:["Fully extending one arm overhead and calling “brick”","Raising both arms sideways","Kicking the disc back in","Calling “out” only"],
+    c:0, ex:"The binding brick option must be signalled before the disc is picked up — fully extending one arm overhead, calling “brick”.", ref:"Rules 7.12 & 7.7" },
+
+  { cat:"Stall Count", q:"The marker administers a stall count by announcing “Stalling” and counting from…",
+    a:["One (1) to ten (10)","One (1) to eight (8)","Zero (0) to nine (9)","One (1) to fifteen (15)"],
+    c:0, ex:"The marker administers a stall count by announcing “Stalling” and then counting from one (1) to ten (10).", ref:"Rule 9.1" },
+  { cat:"Stall Count", q:"What is the minimum interval between numbers in the stall count?",
+    a:["One (1) second","Half a second","Two (2) seconds","No minimum"],
+    c:0, ex:"The interval between the start of each number in the stall count must be at least one (1) second.", ref:"Rule 9.1" },
+  { cat:"Stall Count", q:"Within what distance of the thrower's pivot point must the marker be to continue counting?",
+    a:["Three (3) metres","Two (2) metres","Five (5) metres","Any distance"],
+    c:0, ex:"The marker may only start and continue a stall count when within three (3) metres of the thrower's pivot point.", ref:"Rule 9.3.2" },
+  { cat:"Stall Count", q:"If a different player becomes the marker, the stall count must be restarted at…",
+    a:["“Stalling one (1)”","“Stalling six (6)”","Where the last count stopped","“Stalling eight (8)”"],
+    c:0, ex:"If the marker moves beyond the appropriate three metre radius, or a different player becomes the marker, the stall count must be restarted at “Stalling one (1)”.", ref:"Rule 9.4" },
+  { cat:"Stall Count", q:"A “stall-out” turnover occurs if the pass is not released before the marker…",
+    a:["First starts to say the word “ten”","Finishes saying “ten”","Says “stall-out”","Counts to twelve"],
+    c:0, ex:"A stall-out occurs when the thrower has not released the pass before the marker first starts to say the word “ten” in the stall count.", ref:"Rule 13.2.2" },
+  { cat:"Stall Count", q:"After a contested stall-out, the stall count restarts at…",
+    a:["“Stalling eight (8)”","“Stalling one (1)”","“Stalling six (6)”","“Stalling ten (10)”"],
+    c:0, ex:"After a contested stall-out the stall count restarts at “Stalling eight (8)”.", ref:"Rule 9.5.3" },
+  { cat:"Stall Count", q:"After all other calls — including “pick” — the stall count restarts at maximum…",
+    a:["Six (6)","Nine (9)","One (1)","Eight (8)"],
+    c:0, ex:"After all other calls, including “pick”, the stall count restarts at maximum six (6).", ref:"Rule 9.5.5" },
+
+  { cat:"Turnovers", q:"Which of these is NOT a turnover listed in Rule 13.1?",
+    a:["The wind carrying the disc past midfield","The disc contacting the ground while not in an offensive player's possession","A defensive player establishing possession of a pass","The disc becoming out-of-bounds"],
+    c:0, ex:"Rule 13.1 lists: a “down”, an “interception”, an “out-of-bounds”, and a “dropped pull”. Wind is not a turnover cause.", ref:"Rule 13.1" },
+  { cat:"Turnovers", q:"During the pull, if the offence touches the disc before it hits the ground and then fails to establish possession…",
+    a:["It is a turnover (“dropped pull”)","Play continues normally","The pull is retaken","The defence gets a free throw"],
+    c:0, ex:"During the pull, if the offence touches the disc before it hits the ground and subsequently fails to establish possession, it is a turnover called a “dropped pull”.", ref:"Rule 13.1.4" },
+  { cat:"Turnovers", q:"Intentionally passing the disc from one offensive player to another without either player completely letting go is…",
+    a:["A handover — a turnover","Legal as long as quick","Only illegal in the end zone","Called a travel"],
+    c:0, ex:"Intentionally transferring the disc between offensive players without ever being completely untouched by both players is a “handover” — a stoppage turnover.", ref:"Rule 13.2.3" },
+  { cat:"State of Play", q:"After a turnover or the pull, offensive players retrieving the disc must move…",
+    a:["At walking pace or faster, directly to the disc","As slowly as they like","Only backwards","At sprint pace always"],
+    c:0, ex:"After a turnover, and after the pull, an offensive player must move at walking pace or faster to directly retrieve the disc and establish a pivot point.", ref:"Rule 8.5" },
+
+  { cat:"Receiving", q:"Per the rules, a “catch” occurs when a player has a non-spinning disc trapped between…",
+    a:["At least two body parts","Both hands only","A hand and the ground","Their feet"],
+    c:0, ex:"A “catch” occurs when a player has a non-spinning disc trapped between at least two body parts.", ref:"Rule 12.1" },
+  { cat:"Receiving", q:"If offensive and defensive players catch the disc simultaneously, possession goes to…",
+    a:["The offence","The defence","Nobody — redo the play","Whoever landed first"],
+    c:0, ex:"If offensive and defensive players catch the disc simultaneously, the offence retains possession.", ref:"Rule 12.3" },
+  { cat:"Contact", q:"Regarding initiating contact, the rules state that…",
+    a:["There is no situation where a player may justify initiating contact","Contact is fine if you're making a play on the disc","Only defenders may initiate contact","Contact is allowed outside the stack"],
+    c:0, ex:"All players must attempt to avoid initiating contact, and there is no situation where a player may justify initiating contact. “Making a play on the disc” is not a valid excuse.", ref:"Rules 12.6 & 12.6.1" },
+  { cat:"Out-of-Bounds", q:"Are the perimeter lines part of the playing field?",
+    a:["No — the perimeter lines are out-of-bounds","Yes, entirely","Only the sidelines","Only the endlines"],
+    c:0, ex:"The perimeter lines are not part of the playing field and are out-of-bounds.", ref:"Rules 2.3 & 11.1" },
+
+  { cat:"Scoring", q:"A goal is scored when an in-bounds player catches a legal pass and…",
+    a:["All their ground contacts are entirely within their attacking end zone, and they maintain the catch through related ground contact","They touch the end zone line with one foot","The disc crosses the goal line in the air","They celebrate first"],
+    c:0, ex:"A goal is scored if an in-bounds player catches a legal pass, all their ground contacts are entirely within their attacking end zone, and they maintain the catch throughout all ground contact related to the catch.", ref:"Rule 14.1" },
+  { cat:"Scoring", q:"If a player believes a goal has been scored, they may call…”",
+    a:["“Goal” — and play stops","“Score!” — play continues","“Check”","“Time-out”"],
+    c:0, ex:"If a player believes a goal has been scored, they may call “goal” and play stops.", ref:"Rule 14.2" },
+
+  { cat:"Fouls & Infractions", q:"Dangerous play must be treated as a foul…",
+    a:["Regardless of whether or when contact occurs","Only when actual contact happens","Only if the injured player calls it","Only in the end zone"],
+    c:0, ex:"Actions demonstrating reckless disregard for the safety of fellow players are considered dangerous play and must be treated as a foul, regardless of whether or when contact occurs.", ref:"Rule 17.1.1" },
+  { cat:"Fouls & Infractions", q:"Running with the disc beyond the allowed ground contacts after a catch is called…",
+    a:["A “travel” infraction","A stall-out","A handover","A double-team"],
+    c:0, ex:"After catching the disc, the thrower must reduce speed as quickly as possible and establish a pivot point — breaching this is a “travel” infraction.", ref:"Rule 18.2" },
+  { cat:"Fouls & Infractions", q:"When should a player make a call under Spirit of the Game?",
+    a:["Only when the breach is significant enough to affect the outcome, or safety is at risk","On every tiny breach immediately","Never — silence is required","Only captains may call anything"],
+    c:0, ex:"Players should only make a call where a breach is significant enough to make a difference to the outcome of the action, or where a player's safety is at risk.", ref:"Rule 1.3.10" },
+  { cat:"Spirit of the Game", q:"If a novice player commits a breach because they don't know the rules, experienced players should…",
+    a:["Assist to explain the breach","Immediately call a foul louder","Ignore it forever","Ask them to leave the field"],
+    c:0, ex:"In the case where a novice player is involved in a breach and does not know the rules, experienced players should assist to explain the breach.", ref:"Rule 1.8" },
+  { cat:"Spirit of the Game", q:"Team captains' Spirit responsibilities include…",
+    a:["Teaching the rules, disciplining poor Spirit, and calling Spirit Stoppages","Choosing the final score","Overturning any call they dislike","Replacing referees"],
+    c:0, ex:"Captains take responsibility for teaching their team the rules and good Spirit, discipline team-mates who display poor Spirit, and may call a Spirit Stoppage.", ref:"Rule 1.7" },
+
+  { cat:"Equipment", q:"Which disc may be used in a game?",
+    a:["Any flying disc acceptable to both team captains","Only white discs","Only discs approved by WFDF, no exceptions","Any frisbee from a toy store"],
+    c:0, ex:"Any flying disc acceptable to both captains may be used. WFDF maintains a list of approved recommended discs.", ref:"Rule 3.1" },
+  { cat:"Equipment", q:"Uniform requirements state that each player must wear…",
+    a:["A uniform that distinguishes their team","Matching shoes","A numbered jersey only","Anything dark"],
+    c:0, ex:"Each player must wear a uniform that distinguishes their team.", ref:"Rule 3.3" },
+
+  { cat:"Time-Outs", q:"How long does a time-out last?",
+    a:["Seventy-five (75) seconds","Thirty (30) seconds","Two (2) minutes","Ninety (90) seconds"],
+    c:0, ex:"The time-out starts when the “T” is formed, and lasts seventy-five (75) seconds.", ref:"Rule 20.3" },
+  { cat:"Time-Outs", q:"After the pull, who may call a time-out?",
+    a:["Only a thrower with possession of the disc","Any player on the field","The captain only","The marker"],
+    c:0, ex:"After the pull, only a thrower with possession of the disc may call a time-out.", ref:"Rule 20.3" },
+  { cat:"Time-Outs", q:"How is a time-out signalled?",
+    a:["Forming a “T” with hands, or one hand and the disc, while calling “time-out”","Raising both fists","Spinning the disc overhead","Shouting “stop” twice"],
+    c:0, ex:"The player calling a time-out must form a \"T\" with their hands, or with one hand and the disc, and should call “time-out”.", ref:"Rule 20.1" },
+
+  { cat:"Substitutions", q:"When may teams substitute players?",
+    a:["Unlimited substitutions after a goal, before signalling readiness for the pull","Only at half time","Only for injuries, ever","Every third point"],
+    c:0, ex:"A team may make unlimited substitutions after a goal is scored and before their team signals readiness for the pull.", ref:"Rule 5.2" },
+
+  { cat:"Starting a Game", q:"At the start of a game, team representatives fairly determine which team first chooses…",
+    a:["Whether to receive or throw the initial pull, OR which end zone to initially defend","The final score target","Who referees","The disc colour only"],
+    c:0, ex:"Representatives fairly determine which team first chooses either whether to receive or throw the initial pull, or which end zone they will initially defend. The other team gets the remaining choice.", ref:"Rule 6.1" },
+
+  { cat:"Dead Play", q:"Which situation makes play “dead” with no turnover possible?",
+    a:["All of these","After the start of a point until the pull is released","After a call that stops play, until the disc is checked in","After the disc hits the ground until possession is established"],
+    c:0, ex:"Play is “dead” after the start of a point until the pull is released; when carrying to the pivot location; after a stopping call until check-in; and after a disc hits the ground until possession is established.", ref:"Rule 8.1" },
+  { cat:"Dead Play", q:"During dead play…",
+    a:["Players are allowed to move (unless specified otherwise)","Everyone must freeze","Only captains may move","Movement means a forfeit"],
+    c:0, ex:"Players are allowed to move during dead play (unless specified otherwise).", ref:"Rule 8.1.5" },
+
+  { cat:"Field Layout", q:"The brick marks are located…",
+    a:["A distance equal to the length of the end zone away from each goal line, midway between the sidelines","At the centre of the field only","In each end zone corner","On the sidelines"],
+    c:0, ex:"The brick marks are crossed one-metre lines located a distance equal to the length of the end zone away from each goal line, midway between the sidelines.", ref:"Rule 2.5" },
+
+  { cat:"Calls", q:"Calls must be made…",
+    a:["Immediately after the breach is observed","Whenever convenient","Only at half time","By written report"],
+    c:0, ex:"Calls must be made immediately after the breach is observed.", ref:"Rule 15.8" },
+  { cat:"Calls", q:"When a foul or violation call stops play, players should…",
+    a:["Visibly or audibly communicate the stoppage and echo calls on the field","Stay silent until resolved","Run to the sideline","Throw the disc away"],
+    c:0, ex:"Players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call, and all players should echo calls on the field.", ref:"Rule 15.7" },
+
+  { cat:"Positioning", q:"A player in an established position…",
+    a:["Is entitled to remain in that position and must not be contacted by an opposing player","Must yield to any moving player","Owns a 2-metre bubble","May move into opponents freely"],
+    c:0, ex:"A player in an established position is entitled to remain in that position and must not be contacted by an opposing player.", ref:"Rule 12.4" },
+
+  { cat:"Pull Rules", q:"If an offensive player catches the pull and establishes possession inside their defending end zone, they…",
+    a:["Must establish a pivot there — even in the defending end zone","May walk it to midfield","Take the brick automatically","Redo the pull"],
+    c:0, ex:"If an offensive player catches the pull and establishes possession, they must establish a pivot point at the nearest location — even if that pivot point is in their defending end zone.", ref:"Rule 7.9" },
+  { cat:"Pull Rules", q:"If the pull hits the playing field and never goes out-of-bounds, the thrower establishes a pivot…",
+    a:["Where the disc stops","At the brick mark","Anywhere behind the goal line","At the centre of the field"],
+    c:0, ex:"If the disc initially contacts the playing field and never becomes out-of-bounds, the thrower must establish a pivot point where the disc stops.", ref:"Rule 7.10" },
+
+  { cat:"Foul Types", q:"A Receiving Foul occurs when a player initiates non-minor contact with an opponent…",
+    a:["Before, while, or directly after either player makes a play on the disc","At any moment in the point","Only after the catch","Only off the disc"],
+    c:0, ex:"A Receiving Foul occurs when a player initiates non-minor contact with an opponent before, while, or directly after, either player makes a play on the disc.", ref:"Rule 17.2.1" },
+  { cat:"Foul Types", q:"Contact during the thrower's follow-through…",
+    a:["Is not a sufficient basis for a foul, but should be avoided","Is always a foul","Is legal and encouraged","Ends the point"],
+    c:0, ex:"Contact occurring during the thrower's follow through is not a sufficient basis for a foul, but should be avoided.", ref:"Rule 17.7.2" },
+  { cat:"Spirit of the Game", q:"Highly competitive play is encouraged, but should never sacrifice…",
+    a:["The mutual respect between players, adherence to the agreed rules, or the basic joy of play","Winning at all costs","Fitness and conditioning","The stall count"],
+    c:0, ex:"Highly competitive play is encouraged, but should never sacrifice the mutual respect between players, adherence to the agreed rules of the game, or the basic joy of play.", ref:"Rule 1.4" },
+  { cat:"Calls", q:"When players disagree about what occurred on the field, the player who best witnessed the play should…",
+    a:["Offer their viewpoint based on their best perspective to resolve the matter","Insist until the other concedes","Default to the defence","Replay the point always"],
+    c:0, ex:"Players should offer their viewpoint based on their best perspective — the most complete viewpoint available including disc, ground, players and line markers involved in the play.", ref:"Rule 1.10 & Definitions" },
+  { cat:"Game Basics", q:"Ultimate is described in the WFDF Introduction as…",
+    a:["A seven-a-side team sport played with a flying disc that is self-officiated and non-contact","A five-a-side contact sport with referees","An individual time-trial sport","A four-quarter game with umpires"],
+    c:0, ex:"“Ultimate is a seven-a-side team sport played with a flying disc… Ultimate is self-officiated and non-contact.”", ref:"WFDF Introduction" }
+];
+
+const verdicts = [
+  { min:.9,  emoji:"🥏🏆", v:"Mafia Rules Lawyer!",        m:"Outstanding. You know the WFDF rulebook cold — disputes on the field just got shorter. Share this with your teammates!" },
+  { min:.75, emoji:"🎉🔥", v:"Certified Spirit Captain",    m:"Strong knowledge! A few more rounds and you'll be the one explaining calls with the exact rule number." },
+  { min:.6,  emoji:"💪📚", v:"Solid Foundation",            m:"Good work! You've got the essentials down. Skim the rule references you missed and try again." },
+  { min:.4,  emoji:"🌱📖", v:"Getting There!",              m:"Nice start — ultimate's rules take reps just like throws. Review the Beginner's Playbook, then come back." },
+  { min:0,   emoji:"🥺👉👈", v:"Time to Study Up",          m:"Hey, everyone starts somewhere! Read through the Beginner's Playbook and the WFDF intro, then re-take the quiz. You've got this." }
+];
+
+/* ---------- STATE ---------- */
+let quiz = [], idx = 0, score = 0, review = [];
+
+const $ = id => document.getElementById(id);
+
+/* ---------- SHUFFLE ---------- */
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ---------- START QUIZ (choice cards) ---------- */
+document.querySelectorAll('.choice-card').forEach(card => {
+  card.addEventListener('click', () => startQuiz(parseInt(card.dataset.count)));
+});
+
+function startQuiz(count) {
+  // Draw N random unique questions; also shuffle answer order per question.
+  quiz = shuffle(BANK).slice(0, Math.min(count, BANK.length)).map(q => {
+    const correctText = q.a[q.c];
+    const opts = shuffle(q.a.map((t,i)=>({t, correct:i===q.c})));
+    return {...q, opts};
+  });
+  idx = 0; score = 0; review = [];
+  $('setupScreen').style.display = 'none';
+  $('resultScreen').classList.remove('show');
+  $('quizScreen').classList.add('show');
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ---------- RENDER ONE QUESTION ---------- */
+function renderQuestion() {
+  const q = quiz[idx];
+  $('progressFill').style.width = ((idx) / quiz.length * 100) + '%';
+  $('progressText').textContent = `Q${idx+1}/${quiz.length} · ${score} ✓`;
+  $('qMeta').textContent = q.cat;
+  $('qText').textContent = q.q;
+  $('explain').className = 'explain';
+  $('nextBtn').style.display = 'none';
+
+  const box = $('answers');
+  box.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'answer-btn';
+    btn.innerHTML = `<span class="letter">${letters[i]}</span><span>${o.t}</span>`;
+    btn.addEventListener('click', () => answer(btn, o, q));
+    box.appendChild(btn);
+  });
+}
+
+/* ---------- HANDLE ANSWER ---------- */
+function answer(btn, opt, q) {
+  document.querySelectorAll('.answer-btn').forEach(b => b.disabled = true);
+
+  // Highlight the true answer; mark user's pick if wrong.
+  const buttons = [...document.querySelectorAll('.answer-btn')];
+  const correctBtn = buttons.find(b => b.textContent.includes(q.opts.find(o=>o.correct).t));
+  correctBtn.classList.add('correct');
+
+  if (opt.correct) {
+    score++;
+    review.push({ q: q.q, ok: true });
+  } else {
+    btn.classList.add('wrong');
+    review.push({ q: q.q, ok: false, picked: opt.t, correct: correctBtn.textContent.trim() });
+  }
+
+  // Explanation with exact rule citation
+  const ex = $('explain');
+  ex.innerHTML = `<strong>${opt.correct ? '✅ Correct!' : '❌ Not quite.'}</strong> ${q.ex}
+                  <span class="ref">📜 ${q.ref} — WFDF Rules of Ultimate 2025–2028</span>`;
+  ex.classList.add('show');
+
+  $('progressFill').style.width = ((idx+1) / quiz.length * 100) + '%';
+  $('progressText').textContent = `Q${idx+1}/${quiz.length} · ${score} ✓`;
+
+  const nb = $('nextBtn');
+  nb.style.display = 'inline-flex';
+  nb.textContent = idx === quiz.length - 1 ? 'See Results 🏁' : 'Next →';
+  nb.onclick = () => { idx === quiz.length - 1 ? showResults() : (idx++, renderQuestion()); };
+}
+
+/* ---------- RESULTS ---------- */
+function showResults() {
+  $('quizScreen').classList.remove('show');
+  $('resultScreen').classList.add('show');
+  $('scoreNum').textContent = score;
+  $('scoreDenom').textContent = '/' + quiz.length;
+
+  const pct = score / quiz.length;
+  const v = verdicts.find(x => pct >= x.min) || verdicts[verdicts.length-1];
+  $('trophyEmoji').textContent = v.emoji;
+  $('verdict').textContent = v.v;
+  $('resultMsg').textContent = v.m;
+
+  // Review list: misses first, then passes.
+  const list = $('reviewList');
+  const misses = review.filter(r => !r.ok);
+  list.innerHTML = `<h3>${misses.length ? `Review — ${misses.length} to brush up on` : 'Flawless — nothing to review! 🎉'}</h3>` +
+    misses.map(m => `<div class="review-item missed"><div class="rv-q">${m.q}</div>
+      <div class="rv-a">You picked: <b>${m.picked}</b></div>
+      <div class="rv-a">Correct: <b style="color:var(--km-charcoal)">${m.correct}</b></div></div>`).join('');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ---------- PLAY AGAIN ---------- */
+$('againBtn').addEventListener('click', () => {
+  $('resultScreen').classList.remove('show');
+  $('quizScreen').classList.remove('show');
+  $('setupScreen').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
