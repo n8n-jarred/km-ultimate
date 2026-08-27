@@ -6,10 +6,7 @@
 
 <!-- ============================================================
      KM ULTIMATE — MAIN SITE (HOME)
-     Official Brand Style Guide implementation:
-       Crimson #73000F · Charcoal #202828 · Silver #A7A7A7 · White
-       Typeface: Aftika (fallback: Work Sans, heavy weights)
-     Sub-page: /beginners-playbook/
+     Official Brand Style Guide implementation (Light Mode Theme)
      ============================================================ -->
 
 <title>Kid Mafia Ultimate · Laguna | Community & Player Development</title>
@@ -17,7 +14,7 @@
 <meta name="keywords" content="Kid Mafia Ultimate, KM Ultimate, ultimate frisbee Laguna, frisbee Calamba, Nuvali frisbee, Carmeltown field, ultimate Philippines">
 <meta name="author" content="Kid Mafia Ultimate">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#202828">
+<meta name="theme-color" content="#FFFFFF">
 
 <link rel="canonical" href="./index.html">
 <meta property="og:type" content="website">
@@ -31,17 +28,17 @@
 
 <style>
 /* ============================================================
-   1. OFFICIAL BRAND TOKENS
+   1. OFFICIAL BRAND TOKENS (LIGHT / WHITE THEME)
    ============================================================ */
 :root {
   --km-crimson: #73000F;
-  --km-crimson-hi: #9c1220;          /* hover/brighten state */
+  --km-crimson-hi: #9c1220;
   --km-charcoal: #202828;
-  --km-charcoal-deep: #171d1d;       /* page background */
-  --km-silver: #A7A7A7;
+  --km-silver: #666666;
   --km-white: #FFFFFF;
-  --km-line: rgba(167,167,167,0.2);
-  --font-main: 'Work Sans', sans-serif;   /* Aftika fallback — heavy weights */
+  --km-card-bg: #F8F9FA;
+  --km-line: rgba(32, 40, 40, 0.12);
+  --font-main: 'Work Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -49,31 +46,28 @@
 html { scroll-behavior: smooth; }
 
 html, body {
-  background: var(--km-charcoal-deep);
-  color: var(--km-white);
+  background: var(--km-white);
+  color: var(--km-charcoal);
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
 }
 
 body {
   min-height: 100vh;
-  background-image:
-    radial-gradient(circle at 10% 0%, rgba(115,0,15,0.22), transparent 38%),
-    radial-gradient(circle at 92% 100%, rgba(115,0,15,0.12), transparent 44%);
 }
 
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--km-crimson); outline-offset: 3px; }
 
 /* ============================================================
-   2. COMPACT TOP NAV — no animation, slim & aesthetic
+   2. TOP NAV
    ============================================================ */
 .site-nav {
   position: sticky; top: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
   gap: 14px;
-  padding: 8px 20px;
-  background: rgba(23,29,29,0.94);
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--km-line);
 }
@@ -82,14 +76,13 @@ a { color: inherit; }
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  font-size: 17px;
-  color: var(--km-white);
+  font-size: 18px;
+  color: var(--km-crimson);
   text-decoration: none;
   line-height: 1;
 }
-.site-nav .logo .red { color: var(--km-crimson-hi); }
 .site-nav .logo .tag {
-  font-size: 9px;
+  font-size: 10px;
   vertical-align: super;
   color: var(--km-silver);
   font-weight: 700;
@@ -102,42 +95,33 @@ a { color: inherit; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--km-silver);
-  padding: 13px 12px;
+  color: var(--km-charcoal);
+  padding: 10px 12px;
   border-radius: 4px;
+  font-weight: 600;
   transition: color .2s ease, background .2s ease;
 }
-.nav-links a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
-@media (max-width: 640px) { .nav-links a { padding: 11px 7px; font-size: 10px; } }
+.nav-links a:hover { color: var(--km-crimson); background: rgba(115,0,15,0.06); }
+@media (max-width: 640px) { .nav-links a { padding: 8px 6px; font-size: 10px; } }
 
 /* ============================================================
-   3. HERO — brandmark (fedora silhouette) + flight trajectory,
-      static (no animation), compact height
+   3. HERO SECTION
    ============================================================ */
 .hero {
   position: relative;
   text-align: center;
-  padding: 52px 20px 56px;
+  padding: 60px 20px 64px;
   overflow: hidden;
-}
-
-/* ambient trajectory lines behind hero content — decorative only */
-.hero .bg-arcs {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  opacity: 0.5;
+  background: radial-gradient(circle at 50% 20%, rgba(115,0,15,0.04), transparent 70%);
 }
 
 .hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
 
-/* Fedora brandmark, drawn inline per brand guide (white on charcoal,
-   crimson disc accent) */
-.brandmark {
-  width: clamp(64px, 12vw, 88px);
+.brandmark-img {
+  width: clamp(90px, 15vw, 130px);
   height: auto;
   display: block;
-  margin: 0 auto 14px;
+  margin: 0 auto 20px;
 }
 
 .eyebrow {
@@ -146,19 +130,19 @@ a { color: inherit; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--km-silver);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
 h1.brand {
   font-family: var(--font-main);
   font-weight: 800;
-  font-size: clamp(36px, 8vw, 60px);
+  font-size: clamp(38px, 8vw, 64px);
   line-height: 1.02;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  color: var(--km-white);
+  color: var(--km-crimson);
 }
-h1.brand .red { color: var(--km-crimson); text-shadow: 2px 2px 0 rgba(255,255,255,0.12); }
 h1.brand .tag {
   font-size: 0.32em;
   vertical-align: super;
@@ -167,19 +151,18 @@ h1.brand .tag {
   letter-spacing: 0.08em;
 }
 .brand-sub {
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.42em;
-  font-size: clamp(12px, 2.2vw, 16px);
-  color: var(--km-white);
+  font-size: clamp(13px, 2.2vw, 17px);
+  color: var(--km-charcoal);
   margin-top: 6px;
-  text-shadow: 1px 1px 0 var(--km-crimson);
 }
 
 .hero-tagline {
-  margin-top: 16px;
-  font-size: clamp(15px, 2.5vw, 17px);
-  color: var(--km-white);
+  margin-top: 18px;
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: var(--km-charcoal);
   max-width: 580px;
   margin-left: auto; margin-right: auto;
   line-height: 1.6;
@@ -190,11 +173,11 @@ h1.brand .tag {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: clamp(12px, 2vw, 15px);
-  color: var(--km-crimson-hi);
+  font-size: clamp(12px, 2vw, 14px);
+  color: var(--km-crimson);
 }
 
-.hero-actions { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-actions { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 .cta {
   display: inline-flex;
@@ -207,41 +190,40 @@ h1.brand .tag {
   font-size: 13px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 14px 26px;
+  padding: 14px 28px;
   border-radius: 4px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid var(--km-crimson);
   cursor: pointer;
   text-decoration: none;
   transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
 }
-.cta:hover  { background: var(--km-crimson-hi); transform: scale(1.02); box-shadow: 0 6px 22px rgba(115,0,15,0.55); }
-.cta:active { transform: scale(0.98); }
+.cta:hover  { background: var(--km-crimson-hi); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(115,0,15,0.25); }
+.cta:active { transform: translateY(0); }
 .cta.ghost {
   background: transparent;
   border-color: var(--km-line);
-  color: var(--km-white);
+  color: var(--km-charcoal);
 }
-.cta.ghost:hover { border-color: var(--km-crimson-hi); background: rgba(115,0,15,0.25); box-shadow: none; }
+.cta.ghost:hover { border-color: var(--km-crimson); background: rgba(115,0,15,0.04); color: var(--km-crimson); box-shadow: none; }
 
-/* Social icons row */
 .socials {
-  margin-top: 26px;
+  margin-top: 28px;
   display: flex; gap: 12px; justify-content: center;
 }
 .socials a {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 48px; height: 48px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   border: 1px solid var(--km-line);
-  background: var(--km-charcoal);
+  background: var(--km-white);
   transition: border-color .2s ease, background .2s ease, transform .15s ease;
 }
-.socials a:hover { border-color: var(--km-crimson-hi); background: rgba(115,0,15,0.35); transform: scale(1.06); }
-.socials svg { width: 20px; height: 20px; fill: var(--km-silver); }
-.socials a:hover svg { fill: var(--km-white); }
+.socials a:hover { border-color: var(--km-crimson); background: rgba(115,0,15,0.05); transform: translateY(-2px); }
+.socials svg { width: 20px; height: 20px; fill: var(--km-charcoal); }
+.socials a:hover svg { fill: var(--km-crimson); }
 
 /* ============================================================
-   4. SECTIONS
+   4. CONTENT SECTIONS
    ============================================================ */
 section.block {
   max-width: 860px;
@@ -254,13 +236,14 @@ section.block {
 .section-num {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--km-crimson-hi);
+  font-weight: 600;
+  color: var(--km-crimson);
 }
 h2.section-title {
   font-weight: 800;
   text-transform: uppercase;
   font-size: clamp(26px, 5vw, 36px);
-  color: var(--km-white);
+  color: var(--km-crimson);
   line-height: 1.1;
 }
 .section-sub {
@@ -274,10 +257,10 @@ h2.section-title {
 }
 
 .card {
-  background: var(--km-charcoal);
+  background: var(--km-card-bg);
   border: 1px solid var(--km-line);
   border-radius: 6px;
-  padding: 20px 22px;
+  padding: 22px 24px;
   margin-bottom: 14px;
 }
 .card h3 {
@@ -285,19 +268,19 @@ h2.section-title {
   font-size: 16px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--km-crimson-hi);
+  color: var(--km-crimson);
   margin-bottom: 8px;
 }
-.card p, .card li { font-size: 14.5px; line-height: 1.7; color: #e8e8e8; }
+.card p, .card li { font-size: 14.5px; line-height: 1.7; color: var(--km-charcoal); }
 .card ul { padding-left: 18px; margin-top: 6px; }
 .card li { margin-bottom: 6px; }
-.card strong { color: var(--km-white); }
+.card strong { color: var(--km-crimson); }
 .callout {
   margin-top: 14px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--km-crimson-hi);
+  color: var(--km-crimson);
   font-size: 15px;
 }
 
@@ -310,9 +293,9 @@ h2.section-title {
   gap: 12px;
 }
 .value-card {
-  background: var(--km-charcoal);
+  background: var(--km-card-bg);
   border: 1px solid var(--km-line);
-  border-left: 3px solid var(--km-crimson);
+  border-left: 4px solid var(--km-crimson);
   border-radius: 4px;
   padding: 16px 18px;
 }
@@ -321,37 +304,37 @@ h2.section-title {
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 0.03em;
-  color: var(--km-white);
+  color: var(--km-crimson);
   margin-bottom: 5px;
 }
-.value-card p { font-size: 13.5px; color: var(--km-silver); line-height: 1.6; }
+.value-card p { font-size: 13.5px; color: var(--km-charcoal); line-height: 1.6; }
 
-/* ---------- TRAINING SCHEDULE ---------- */
+/* ---------- SCHEDULE CARD ---------- */
 .schedule-card {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 20px;
   align-items: center;
-  background: linear-gradient(135deg, rgba(115,0,15,0.35), var(--km-charcoal));
-  border: 1px solid rgba(156,18,32,0.6);
+  background: #FFF5F6;
+  border: 1px solid rgba(115,0,15,0.2);
   border-radius: 8px;
   padding: 24px;
 }
 @media (max-width: 560px) { .schedule-card { grid-template-columns: 1fr; text-align: center; } }
 
 .schedule-icon {
-  width: 72px; height: 72px;
+  width: 64px; height: 64px;
   border-radius: 50%;
   background: var(--km-crimson);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   margin: 0 auto;
 }
-.schedule-icon svg { width: 36px; height: 36px; stroke: var(--km-white); fill: none; stroke-width: 2; }
+.schedule-icon svg { width: 32px; height: 32px; stroke: var(--km-white); fill: none; stroke-width: 2; }
 
-.sched-line-1 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--km-crimson-hi); }
-.sched-line-2 { font-weight: 800; font-size: clamp(22px, 4vw, 30px); text-transform: uppercase; color: var(--km-white); }
-.sched-line-3 { font-size: 15px; color: #e8e8e8; margin-top: 2px; }
+.sched-line-1 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--km-crimson); font-weight: 600; }
+.sched-line-2 { font-weight: 800; font-size: clamp(22px, 4vw, 30px); text-transform: uppercase; color: var(--km-crimson); }
+.sched-line-3 { font-size: 15px; color: var(--km-charcoal); font-weight: 600; margin-top: 2px; }
 .sched-line-4 { font-family: var(--font-mono); font-size: 12.5px; color: var(--km-silver); margin-top: 4px; }
 
 .landmarks ul { list-style: none; padding: 0; }
@@ -360,19 +343,19 @@ h2.section-title {
   border-bottom: 1px dashed var(--km-line);
   position: relative;
   font-size: 14px;
-  color: #e8e8e8;
+  color: var(--km-charcoal);
 }
 .landmarks li:last-child { border-bottom: none; }
-.landmarks li::before { content: '📍'; position: absolute; left: 0; filter: grayscale(0.3); }
+.landmarks li::before { content: '📍'; position: absolute; left: 0; }
 
 .note-strip {
   margin-top: 14px;
-  border: 1px dashed rgba(156,18,32,0.6);
-  background: rgba(115,0,15,0.12);
+  border: 1px dashed rgba(115,0,15,0.3);
+  background: #FFF5F6;
   border-radius: 4px;
   padding: 12px 16px;
   font-size: 13px;
-  color: var(--km-silver);
+  color: var(--km-charcoal);
   line-height: 1.6;
 }
 
@@ -383,33 +366,31 @@ h2.section-title {
   gap: 14px;
 }
 .person {
-  background: var(--km-charcoal);
+  background: var(--km-card-bg);
   border: 1px solid var(--km-line);
   border-radius: 6px;
   padding: 18px 12px;
   text-align: center;
   transition: border-color .2s ease, transform .15s ease;
 }
-.person:hover { border-color: var(--km-crimson-hi); transform: translateY(-3px); }
+.person:hover { border-color: var(--km-crimson); transform: translateY(-3px); }
 .avatar {
-  width: 84px; height: 84px;
+  width: 76px; height: 76px;
   margin: 0 auto 12px;
   border-radius: 50%;
-  background:
-    repeating-linear-gradient(45deg, rgba(115,0,15,0.3), rgba(115,0,15,0.3) 8px, rgba(23,29,29,0.6) 8px, rgba(23,29,29,0.6) 16px),
-    var(--km-charcoal-deep);
+  background: #EAEAEA;
   border: 2px solid var(--km-crimson);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
-.avatar svg { width: 46px; height: 46px; fill: var(--km-silver); opacity: 0.85; }
+.avatar svg { width: 42px; height: 42px; fill: var(--km-silver); }
 .person .p-name {
   font-weight: 800;
   font-size: 13.5px;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  color: var(--km-white);
+  color: var(--km-crimson);
   line-height: 1.25;
 }
 .person .p-role {
@@ -420,58 +401,62 @@ h2.section-title {
   color: var(--km-silver);
   margin-top: 6px;
   line-height: 1.5;
+  font-weight: 600;
 }
 .committee-sub {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--km-crimson-hi);
+  color: var(--km-crimson);
+  font-weight: 600;
   margin: 26px 0 14px;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-  margin-top: 56px;
+  margin-top: 60px;
   border-top: 1px solid var(--km-line);
+  background: var(--km-card-bg);
   text-align: center;
-  padding: 30px 20px 40px;
+  padding: 36px 20px 44px;
 }
 footer .f-logo {
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 18px;
-  color: var(--km-white);
+  font-size: 20px;
+  color: var(--km-crimson);
 }
-footer .f-logo .red { color: var(--km-crimson-hi); }
 footer p {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--km-silver);
   letter-spacing: 0.05em;
-  margin-top: 10px;
+  margin-top: 8px;
   line-height: 1.8;
+  font-weight: 600;
 }
-footer nav { margin-top: 14px; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+footer nav { margin-top: 16px; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
 footer nav a {
   font-family: var(--font-mono);
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--km-silver);
+  color: var(--km-charcoal);
   text-decoration: none;
-  padding: 10px 10px;
+  padding: 8px 10px;
   border-radius: 4px;
+  font-weight: 600;
   transition: color .2s ease, background .2s ease;
 }
-footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
+footer nav a:hover { color: var(--km-crimson); background: rgba(115,0,15,0.06); }
 </style>
 </head>
 <body>
 
 <!-- ================= NAV ================= -->
 <nav class="site-nav" aria-label="Main navigation">
-  <a class="logo" href="#top">KM<span class="red">·</span>ULTIMATE<sup class="tag">'15</sup></a>
+  <a class="logo" href="#top">KM<span style="color:var(--km-charcoal)">·</span>ULTIMATE<sup class="tag">'15</sup></a>
   <div class="nav-links">
     <a href="#welcome">Welcome</a>
     <a href="#about">About</a>
@@ -485,34 +470,12 @@ footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
 
 <!-- ================= HERO ================= -->
 <header class="hero" id="top">
-  <!-- Ambient flight trajectory lines (static, decorative) -->
-  <svg class="bg-arcs" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <path d="M -50 360 Q 600 -140 1260 260" stroke="#73000F" stroke-width="1.5" fill="none" opacity="0.6"/>
-    <path d="M -50 400 Q 620 -80 1260 300" stroke="#A7A7A7" stroke-width="1" fill="none" opacity="0.18" stroke-dasharray="8 10"/>
-    <path d="M -50 320 Q 580 -190 1260 210" stroke="#73000F" stroke-width="1" fill="none" opacity="0.35"/>
-    <!-- small static disc resting at the end of an arc -->
-    <ellipse cx="960" cy="120" rx="44" ry="13" fill="#202828" stroke="#A7A7A7" stroke-width="1.5"/>
-    <ellipse cx="960" cy="116" rx="27" ry="7" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.35"/>
-    <path d="M 900 128 Q 884 132 870 129" stroke="#73000F" stroke-width="2" fill="none" stroke-linecap="round"/>
-  </svg>
-
   <div class="hero-inner">
-    <!-- Inline SVG Brandmark: fedora silhouette per brand guide -->
-    <svg class="brandmark" viewBox="0 0 100 84" role="img" aria-label="Kid Mafia Ultimate brandmark — figure wearing a fedora">
-      <!-- fedora crown -->
-      <path d="M 30 34 Q 32 10 50 8 Q 68 10 70 34 L 70 40 L 30 40 Z" fill="#FFFFFF"/>
-      <!-- fedora band -->
-      <rect x="30" y="34" width="40" height="7" fill="#73000F"/>
-      <!-- brim -->
-      <path d="M 18 47 Q 24 41 50 41 Q 76 41 82 47 Q 78 53 50 53 Q 22 53 18 47 Z" fill="#FFFFFF"/>
-      <!-- shoulders / collar hint -->
-      <path d="M 30 62 Q 50 54 70 62 L 74 80 L 26 80 Z" fill="#FFFFFF"/>
-      <!-- crimson flying disc accent beside the mark -->
-      <ellipse cx="90" cy="72" rx="8" ry="3" fill="#73000F"/>
-    </svg>
+    <!-- Official Red Brandmark Logo -->
+    <img src="BRANDMARK MAIN RED.png" alt="Kid Mafia Ultimate Brandmark" class="brandmark-img">
 
     <div class="eyebrow">Laguna · Philippines</div>
-    <h1 class="brand"><span class="tag">'15</span><br>KM<span class="red">&nbsp;</span>ULTIMATE</h1>
+    <h1 class="brand"><span class="tag">EST. '15</span><br>KM&nbsp;ULTIMATE</h1>
     <div class="brand-sub">Kid Mafia</div>
     <p class="hero-tagline">More than a frisbee team — a community dedicated to developing Ultimate Frisbee players across Laguna.</p>
     <div class="motto">Honing Skills · Building Community · Playing with Heart</div>
@@ -546,7 +509,7 @@ footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
     </div>
     <div class="card">
       <h3>Everything you need is here</h3>
-      <p>This site is home base: our mission and values, our training schedule and venue, and the people who lead the family — plus a full beginner's playbook for anyone picking up a disc for the first time. Explore each section and reach out through our socials anytime.</p>
+      <p>Everything you need is here: our vision & mission, training details, and the people who lead the family — plus full Beginner, Intermediate, and Elite training guides and an interactive Rules Pop Quiz. Dive in and get connected.</p>
       <div class="callout">Play hard. Play fair. Lift others up.</div>
     </div>
   </section>
@@ -581,7 +544,7 @@ footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
       </ul>
     </div>
 
-    <h3 style="font-weight:800;color:var(--km-white);text-transform:uppercase;font-size:18px;margin:26px 0 14px;">Our Values</h3>
+    <h3 style="font-weight:800;color:var(--km-crimson);text-transform:uppercase;font-size:18px;margin:26px 0 14px;">Our Values</h3>
     <div class="values-grid">
       <div class="value-card"><h4>Family First</h4><p>We treat every member with respect and support. No one is left behind.</p></div>
       <div class="value-card"><h4>Spirit of the Game</h4><p>We compete fiercely while upholding integrity, honesty, and sportsmanship.</p></div>
@@ -621,7 +584,7 @@ footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
     </div>
 
     <div class="note-strip">
-      ⏱️ Please arrive <strong style="color:#e8e8e8">10–15 minutes early</strong>. Confirm any schedule changes via the official team chat. Occasional additional sessions or clinic days may be announced separately.
+      ⏱️ Please arrive <strong>10–15 minutes early</strong>. Confirm any schedule changes via the official team chat. Occasional additional sessions or clinic days may be announced separately.
     </div>
   </section>
 
@@ -634,8 +597,6 @@ footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
     </div>
 
     <div class="committee-sub">Board of Directors</div>
-    <!-- Order per leadership: Jarred, Arthur, Joaquin, Don, Jari, John Depp.
-         Each avatar is a placeholder — swap the inner <svg> for <img src="photos/name.jpg" alt=""> when photos arrive. -->
     <div class="people-grid">
       <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jarred Leysa</div></div>
       <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Arthur Baral</div></div>
@@ -646,7 +607,6 @@ footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
     </div>
 
     <div class="committee-sub">Training Committee</div>
-    <!-- Order: Jarred, Arthur, Yno, Jari, Joaquin, Stella, Katzen, Aaliyah -->
     <div class="people-grid">
       <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Jarred Leysa</div><div class="p-role">Training Head</div></div>
       <div class="person"><div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div><div class="p-name">Arthur Baral</div><div class="p-role">Offense Head</div></div>
@@ -662,8 +622,8 @@ footer nav a:hover { color: var(--km-white); background: rgba(115,0,15,0.35); }
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <div class="f-logo">KM<span class="red">·</span>ULTIMATE<sup style="font-size:10px;color:var(--km-silver);">'15</sup></div>
-  <p>KID MAFIA ULTIMATE — HONING SKILLS · BUILDING COMMUNITY · PLAYING WITH HEART<br>CALAMBA, LAGUNA</p>
+  <div class="f-logo">KM<span style="color:var(--km-charcoal)">·</span>ULTIMATE<sup style="font-size:10px;color:var(--km-silver);">'15</sup></div>
+  <p>HONING SKILLS · BUILDING COMMUNITY · PLAYING WITH HEART</p>
   <nav aria-label="Footer navigation">
     <a href="#welcome">Welcome</a>
     <a href="#about">About</a>
